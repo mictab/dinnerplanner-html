@@ -19,3 +19,32 @@ html, body {
     background-color: #ededed;
     padding-left: 50px;
 }
+
+#view1{
+    display: none;
+}
+
+#view6 #miniheader{
+    background-color: rgba(244, 209, 66, 0.6);
+    border: 2px solid black;
+    padding-left: 52px;
+}
+
+#view6 button{
+    background-color: rgba(255, 155, 100, 0.7);
+    border: 2px black solid;
+    border-radius: 30px 5px 5px 30px;
+    margin-top: 1em;
+    margin-right: 1em;
+    float: right;
+}
+
+#view6 .foodRow{
+    margin-top: 2em;
+}
+
+#view6 img{
+    border: 2px black solid;
+    padding: 2px;
+    margin-top: 1em;
+}

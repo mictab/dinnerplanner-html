@@ -1,45 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dinner planner</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-<div class="container-flud">
-    <!-- The Header displayed on every view -->
-    <div id="header" class="row">
-        <div class="col-xs-12 col-md-8 col-lg-12">
-            <h1 id="title">HOMELETTE</h1>
-            <h4 id="subtitle">From the best chefs in the world directly into your kitchen</h4>
-        </div>
-    </div>
+	<div class="container-fluid">
+		<!-- The Header displayed on every view -->
+		<div id="header" class="row">
+			<div class="col-xs-12 col-md-8 col-lg-12">
+				<h1 id="title">HOMELETTE</h1>
+				<h4 id="subtitle">From the best chefs in the world directly into your kitchen</h4>
+			</div>
+		</div>
 
-    <div id="view1">
-        <div class="container" id="splashBox">
-            <div class="row">
-                
-            </div>
-        </div>
-    </div>
+		<div id="view1">
+			<div class="container" id="splashBox">
+				<div class="row">
 
-</div>
+				</div>
+			</div>
+		</div>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery.js"></script>
-<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+		<div id="view6">
+			<div id="miniheader" class="row">
+				<div class="col-md-8">
+					<h3>My Dinner: 4 people</h3>
+				</div>
+				<div class="col-md-4">
+					<button type="button">Go back and edit dinner</button>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row, foodRow">
+					<div class="col-md-2">
+						<img src="images/toast.jpg">
+					</div>
+					<div class="col-md-4">
+						<h4>TOAST</h4>
+						<p>Bacon ipsum dolor amet andouille porchetta shank beef, pork belly pancetta sausage t-bone picanha cow brisket. Filet mignon salami sirloin kevin chicken bacon, pastrami kielbasa. Alcatra pork drumstick swine ribeye pig pastrami beef ribs. Doner short loin rump, capicola pancetta turducken spare ribs pork chop strip steak cow.</p>
+					</div>
+					<div class="col-md-6">
+						<h5>PREPERATION</h5>
+						<p>Bacon ipsum dolor amet ribeye porchetta short ribs meatball prosciutto pork belly turkey corned beef kevin turducken spare ribs tail venison. Swine frankfurter ribeye turducken hamburger jerky sausage bacon doner meatball. Salami porchetta flank hamburger short ribs. Strip steak tri-tip swine ham hock picanha landjaeger kielbasa.
+							<br>
+							<br>
+							Pastrami ham ribeye pig corned beef sausage. Doner rump turducken, shank frankfurter short loin picanha tenderloin corned beef ham pork chop landjaeger filet mignon hamburger. Pork chop bresaola pork shank pork belly pork loin landjaeger. Pig landjaeger pork belly, fatback meatloaf ham chicken brisket bacon turducken strip steak biltong. Burgdoggen salami rump tongue pork belly.
+						</p>
+					</div>
+				</div>
+				<div class="row, foodRow">
+					<div class="col-md-2">
+						<img src="images/meatballs.jpg">
+					</div>
+					<div class="col-md-4">
+						<h4>MEATBALLS</h4>
+						<p>Bacon ipsum dolor amet andouille porchetta shank beef, pork belly pancetta sausage t-bone picanha cow brisket. Filet mignon salami sirloin kevin chicken bacon, pastrami kielbasa. Alcatra pork drumstick swine ribeye pig pastrami beef ribs. Doner short loin rump, capicola pancetta turducken spare ribs pork chop strip steak cow.</p>
+					</div>
+					<div class="col-md-6">
+						<h5>PREPERATION</h5>
+						<p>Bacon ipsum dolor amet ribeye porchetta short ribs meatball prosciutto pork belly turkey corned beef kevin turducken spare ribs tail venison. Swine frankfurter ribeye turducken hamburger jerky sausage bacon doner meatball. Salami porchetta flank hamburger short ribs. Strip steak tri-tip swine ham hock picanha landjaeger kielbasa.
+							<br>
+							<br>
+							Pastrami ham ribeye pig corned beef sausage. Doner rump turducken, shank frankfurter short loin picanha tenderloin corned beef ham pork chop landjaeger filet mignon hamburger. Pork chop bresaola pork shank pork belly pork loin landjaeger. Pig landjaeger pork belly, fatback meatloaf ham chicken brisket bacon turducken strip steak biltong. Burgdoggen salami rump tongue pork belly.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<!-- The application JavaScript code -->
-<script src="js/app.js"></script>
-<script src="js/model/dinnerModel.js"></script>
-<script src="js/view/exampleView.js"></script>
-<script src="js/view/exampleViewController.js"></script>
-</body>
-</html>
+
+
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+		<!-- The application JavaScript code -->
+		<script src="js/app.js"></script>
+		<script src="js/model/dinnerModel.js"></script>
+		<script src="js/view/exampleView.js"></script>
+		<script src="js/view/exampleViewController.js"></script>
+	</body>
+	</html>
