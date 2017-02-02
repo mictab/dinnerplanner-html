@@ -24,13 +24,16 @@ html, body {
     display: none;
 }
 
-#view6 #miniheader{
+.imgBox{
+    border: 2px solid black;
+}
+
+.miniheader{
     background-color: rgba(244, 209, 66, 0.6);
     border: 2px solid black;
     padding-left: 52px;
 }
-
-#view6 button{
+.miniheader button{
     background-color: rgba(255, 155, 100, 0.7);
     border: 2px black solid;
     border-radius: 30px 5px 5px 30px;
@@ -38,6 +41,16 @@ html, body {
     margin-right: 1em;
     float: right;
 }
+
+.line-separator{
+    border-bottom:2px solid #313030;
+}
+
+#view6{
+    display: none;
+}
+
+
 
 #view6 .foodRow{
     margin-top: 2em;
