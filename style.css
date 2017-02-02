@@ -9,6 +9,19 @@ h2 {
 
 #view1 {
     background-image: url("images/cherry.jpg");
+    display: none;
+}
+
+#view2{
+    display: none;
+}
+
+#view5{
+    display: none;
+}
+
+#view6{
+    display: none;
 }
 
 #title {
@@ -27,14 +40,6 @@ h2 {
     border: 2px solid black;
     background-color: #ededed;
     padding-left: 50px;
-}
-
-#view1{
-    display: none;
-}
-
-#view5{
-    display: none;
 }
 
 .imgBox{
@@ -57,10 +62,6 @@ h2 {
 
 .line-separator{
     border-bottom:2px solid #313030;
-}
-
-#view6{
-    display: none;
 }
 
 
