@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<div class="container-flud">
+<div class="container-fluid">
     <!-- The Header displayed on every view -->
     <div id="header" class="row">
         <div class="col-xs-12 col-md-8 col-lg-12">
@@ -21,13 +21,109 @@
         </div>
     </div>
 
-    <div id="view1">
+    <!-- View 1 -->
+    <div id="view1" class="row" style="display: none">
+        <!-- The box -->
         <div class="container" id="splashBox">
             <div class="row">
-                
+                <div class="col-md-12">
+                    <div class="box">
+                        <div id="boxContainer" class="box-content">
+                            <h1 id="boxTitle">A Home Dinner Service</h1>
+                            <div class="separator"></div>
+                            <h3 id="descriptionText">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                            </h3>
+                            <div id="lowerBoxContent">
+                                <h4 id="buttonPreText">start quickly</h4>
+                                <button id="startButton" type="button" class="btn btn-primary btn-lg">Create new dinner</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- View 2 -->
+    <div id="view2" class="row">
+        <div id="cart">
+            <div class="row">
+                <div class="body-content">
+                        <div id="cartBox">
+                            <div id="selectPersons">
+                                <h2>My Dinner</h2>
+                                <p>People</p>
+                            </div>
+                            <div id="dishAndCost" style="border: 3px solid black">
+                                <p class="dish-name">Dish Name</p><p>Cost</p>
+                            </div>
+                            <div id="boxxy">
+                                <p class="pending">Pending</p><p>0.0</p>
+                            </div>
+                            <div class="separator"></div>
+                            <p class="total">SEK 0.00</p>
+                            <button id="confirmDinner" type="button" class="btn btn-primary btn-lg">Confirm Dinner</button>
+                        </div>
+
+                        <div id="view2view3">
+                            <div id="selectDish">
+                                <div class="searchBox">
+                                    <h2>Select Dish</h2>
+                                    <div class="separator"></div>
+                                    <input type="text" placeholder="Enter key words">
+                                    <button class="cancerButton">Search</button>
+                                    <select name="" id="" style="margin-left: 100px; width: 100px;">
+                                        <option value="appetizer">Appetizer</option>
+                                        <option value="breakfast">Breakfast</option>
+                                        <option value="lunch">Lunch</option>
+                                        <option value="dinner">Dinner</option>
+                                    </select>
+                                </div>
+
+                                <div class="dishes">
+                                    <div class="dish">
+                                        <img src="images/meatballs.jpg" alt="" class="dish-image">
+                                        <p class="dish-title"><strong>Lasagne</strong></p>
+                                        <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div class="dish">
+                                        <img src="images/meatballs.jpg" alt="" class="dish-image">
+                                        <p class="dish-title"><strong>Lasagne</strong></p>
+                                        <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div class="dish">
+                                        <img src="images/meatballs.jpg" alt="" class="dish-image">
+                                        <p class="dish-title"><strong>Lasagne</strong></p>
+                                        <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div class="dish">
+                                        <img src="images/meatballs.jpg" alt="" class="dish-image">
+                                        <p class="dish-title"><strong>Lasagne</strong></p>
+                                        <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div class="dish">
+                                        <img src="images/meatballs.jpg" alt="" class="dish-image">
+                                        <p class="dish-title"><strong>Lasagne</strong></p>
+                                        <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 </div>
 
