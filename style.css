@@ -17,7 +17,7 @@ h2 {
 }
 
 #view5{
-    display: none;
+
 }
 
 #view6{
@@ -42,8 +42,56 @@ h2 {
     padding-left: 50px;
 }
 
+#selectedMenu{
+    display: flex;
+    justify-content: center;
+    margin: 2em 15em 1em 15em;
+}
+
 .imgBox{
+    display: inline-block;
+    margin-right: 5em;
+}
+
+.imgBox img{
     border: 2px solid black;
+}
+
+.imgBox div div{
+    background-color: #ddd
+}
+
+.imgBox div h4{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 5px;
+    border-right: 2px black solid;
+    border-left: 2px black solid;
+    border-bottom: 2px black solid;
+}
+
+.imgBox .price{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.price{
+    color: crimson;
+}
+
+.menuResult{
+    border-left: 2px black solid;
+    padding-left: 1em;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#printButton{
+    display: flex;
+    justify-content: flex-end;
+    background-color: orange;
 }
 
 .miniheader{
@@ -51,6 +99,7 @@ h2 {
     border: 2px solid black;
     padding-left: 52px;
 }
+
 .miniheader button{
     background-color: rgba(255, 155, 100, 0.7);
     border: 2px black solid;
@@ -59,11 +108,6 @@ h2 {
     margin-right: 1em;
     float: right;
 }
-
-.line-separator{
-    border-bottom:2px solid #313030;
-}
-
 
 
 #view6 .foodRow{
