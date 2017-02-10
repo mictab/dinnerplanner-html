@@ -20,7 +20,7 @@
 				<h4 id="subtitle">From the best chefs in the world directly into your kitchen</h4>
 			</div>
 		</div>
-		<div id="view6"></div>
+		<div id="view5"></div>
 	</div>
 
     <!-- jQuery -->
@@ -31,7 +31,7 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/view6.js"></script>
+	<script src="js/view/view5.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
   </body>
 </html>
