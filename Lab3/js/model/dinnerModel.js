@@ -123,14 +123,23 @@ var DinnerModel = function () {
     //Adds the passed dish to the menu. If the dish of that type already exists on the menu
     //it is removed from the menu and the new one added.
     this.addDishToMenu = function (id) {
+        var type;
+        var dish;
         for (var i = 0; i < dishes.length; i++) {
-            if (dishes[i].id === id) {
-                // Remove old
-                this.menu.splice(i, 1);
-                // Add new
-                this.menu.push(dishes[i]);
+            if (dishes[i].id == id) {
+                type = dishes[i].type;
+                dish = dishes[i];
+                break;
             }
         }
+
+        for (var j = 0; j < this.menu.length; j++) {
+            if (this.menu[j].type === type) {
+                this.menu.splice(j, 1);
+            }
+        }
+
+        this.menu.push(dish);
         this.notifyObservers(Events.MENU_CHANGED);
     };
 
