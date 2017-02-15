@@ -42,8 +42,33 @@ var View3 = function (container, model) {
     /* Initially, show all menus */
     var availableMenus = model.getAllDishesDisregardType();
 
+    availableMenus.forEach(function (dish) {
+      var dishDiv = $("<div>").addClass("dish").attr("dish_id", dish.id).addClass(dish.type);
+      var image = $("<img>").attr("src", "images/" + dish.image).addClass("dish-image");
+            var stringText;
+            if (dish.description.length > 150) {
+                stringText = dish.description.substr(0, 150) + "...";
+            } else {
+                stringText = dish.description;
+            }
+            var title = $("<p>").addClass("dish-title")
+                .append($("<strong>").text(dish.name));
+            var text = $("<p>").addClass("dish-text")
+                .append($("<strong>").text(stringText));
+            dishDiv
+                .append(image)
+                .append(title)
+                .append(text);
+            dishListView.append(dishDiv);
+    })
+
     function displayAvailableMenus() {
-        availableMenus.forEach(function (dish) {
+      if(!$(".dish-selection").val()) return;
+      $(".dish").css("display", "none");
+      var type = "." + ($(".dish-selection").val()).split(" ")[0];
+      console.log($(type.split(" ")[0]));
+      $(type).css("display", "flex");
+        /*availableMenus.forEach(function (dish) {
             var dishDiv = $("<div>").addClass("dish").attr("dish_id", dish.id);
             var image = $("<img>").attr("src", "images/" + dish.image).addClass("dish-image");
             var stringText;
@@ -61,7 +86,7 @@ var View3 = function (container, model) {
                 .append(title)
                 .append(text);
             dishListView.append(dishDiv);
-        });
+        });*/
     }
 
     displayAvailableMenus();
@@ -74,7 +99,7 @@ var View3 = function (container, model) {
         switch (obj) {
             case Events.SEARCH_CHANGED:
             case Events.DISH_TYPE_CHANGED:
-                dishListView.empty();
+                //dishListView.empty();
                 availableMenus = model.getAllDishes(model.getDishType(), model.getSearchQuery());
                 displayAvailableMenus();
                 break;
