@@ -6,10 +6,6 @@ html, body {
     height: calc(100vh - 100px);
 }
 
-.lasagne {
-    height: calc(100vh - 100px);
-}
-
 header {
     border: 1px solid black;
     height: 100px;
@@ -216,6 +212,7 @@ hr {
 
 .dish-preparations {
     padding-left: 10px;
+    margin-top: 20px;
 }
 
 .dish-text {

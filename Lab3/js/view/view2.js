@@ -19,7 +19,7 @@ var View2 = function (container, model) {
         model.getFullMenu().forEach(function (dish) {
             var li = $("<li>").addClass("table-row");
             li.append($("<span>").text(dish.name));
-            li.append($("<span>").text(model.getDishPrice(dish.id)));
+            li.append($("<span>").text(model.getDishPrice(dish.id)*model.getNumberOfGuests()));
             listOfDishes.append(li);
         });
     }
@@ -33,7 +33,7 @@ var View2 = function (container, model) {
             .append(
                 $("<span>")
                     .text("SEK "))
-            .append($("<span>")
+            .append($("<span>").addClass("totalPrice")
                 .text(model.getTotalMenuPrice())
             )
         );
@@ -62,6 +62,7 @@ var View2 = function (container, model) {
                 usrInput.attr("value", model.getNumberOfGuests());
                 listOfDishes.empty();
                 updateCart();
+                $(".totalPrice").text(model.getTotalMenuPrice());
                 break;
             default:
                 console.log(obj);
