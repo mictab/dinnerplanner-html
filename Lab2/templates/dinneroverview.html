@@ -19,129 +19,20 @@
     </header>
 
     <div class="overview-main-content">
-        <div class="cart">
-            <h4 class="from-left">My Dinner</h4>
-            <label class="from-left" for="people">People</label>
-            <input type="number" name="people" id="people" value="3">
-            <div class="table-head"><span>Dish Name</span><span>Cost</span></div>
+        <div id="view2"></div>
 
-            <ul class="from-left list-of-dishes">
-                <li class="table-row"><span>Toast</span><span>0.00</span></li>
-            </ul>
-
-            <hr>
-            <div class="total-price from-left"><p><span>SEK</span><span id="total-cost"> 0.00</span></p></div>
-            <button type="button" class="btn btn-large btn-primary" id="confirm-button">Confirm Dinner</button>
-        </div>
-
-        <div class="dish-list-view">
-            <div class="dish-list-searchbar">
-                <h1>SELECT DISH</h1>
-                <hr>
-                <input type="text" placeholder="Enter key words">
-                <button class="btn btn-sm btn-primary" id="search-button">Search</button>
-                <select class="dish-selection">
-                    <option value="main">Main</option>
-                    <option value="breakfast" selected>Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                </select>
-            </div>
-
-            <div class="dish-list-listView">
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-
-                <div class="dish">
-                    <img src="../images/meatballs.jpg" alt="" class="dish-image">
-                    <p class="dish-title"><strong>Lasagne</strong></p>
-                    <p class="dish-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
-        </div>
+        <div id="view3"></div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+<script src="../js/app.js"></script>
+<script src="../js/model/dinnerModel.js"></script>
+<script src="../js/view/view2.js"></script>
+<script src="../js/view/view3.js"></script>
+<script src="js/view/exampleViewController.js"></script>
 </body>
 </html>

@@ -216,3 +216,7 @@ hr {
 .dish-preparations {
     padding-left: 10px;
 }
+
+.dish-text {
+    width: 200px;
+}
