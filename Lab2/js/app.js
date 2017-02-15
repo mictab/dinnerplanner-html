@@ -6,6 +6,7 @@ $(function() {
 	model.addDishToMenu(2);
 	var exampleView;
 	var cartView;
+
 	if($("#view1").length){
 		exampleView = new View1($("#view1"), model);
 	}
