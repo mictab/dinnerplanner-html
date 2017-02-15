@@ -8,6 +8,7 @@ var InstructionsScreenViewController = function(view, model) {
     backBtn.on('click', function () {
         $("#container5").css('display', 'none');
         $("#container2").css('display', 'block');
-        $("#view4").css('display', 'block');
+        $("#view3").css('display', 'block');
+        $("#view4").css('display', 'none');
     });
 };

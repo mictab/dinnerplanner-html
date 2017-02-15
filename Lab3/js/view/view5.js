@@ -19,7 +19,7 @@ var View5 = function(container, model){
             tempDiv.append($("<div>").append($("<h4>").text(d.name)));
             imgBox.append(tempDiv);
 
-            var price = $("<div>").addClass("price").text(model.getDishPrice(d.id) + " SEK");
+            var price = $("<div>").addClass("price").text(model.getDishPrice(d.id) * model.getNumberOfGuests() + " SEK");
             imgBox.append(price);
             console.log(price);
             selectedMenu.append(imgBox);
@@ -33,18 +33,16 @@ var View5 = function(container, model){
         selectedMenu.append(menuResult);
         container.append(selectedMenu);
 
-        container.append($("<div>").addClass("separator"));
-
-        container.append($("<span>").attr("id", "printButton").append($("<button>").attr("type", "button").text("Print Full Recipe")));
-
     }
     insert_dishes();
-
+    container.append($("<div>").addClass("separator"));
+    container.append($("<span>").attr("id", "printButton").append($("<button>").attr("type", "button").text("Print Full Recipe")));
 
 	this.update = function(obj) {
 		switch(obj) {
             case Events.MENU_CHANGED:
             	selectedMenu.empty();
+                mhtitle.html("My Dinner: " + model.getNumberOfGuests() + " people");
             	insert_dishes();
         }
 	}
