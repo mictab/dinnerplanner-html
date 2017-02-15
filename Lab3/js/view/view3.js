@@ -37,13 +37,13 @@ var View3 = function (container, model) {
         .append(dishSelection);
 
     /* Generate the list view */
-    var dishListView = $("<div>").addClass("dish-list-listView");
+    var dishListView = $("<div>").attr("id", "list-div").addClass("dish-list-listView");
 
     /* Initially, show all menus */
     var availableMenus = model.getAllDishesDisregardType();
 
     availableMenus.forEach(function (dish) {
-      var dishDiv = $("<div>").addClass("dish").attr("dish_id", dish.id).addClass(dish.type);
+      var dishDiv = $("<div>").addClass("dish").attr("dish_id", dish.id);
       var image = $("<img>").attr("src", "images/" + dish.image).addClass("dish-image");
             var stringText;
             if (dish.description.length > 150) {
@@ -60,15 +60,10 @@ var View3 = function (container, model) {
                 .append(title)
                 .append(text);
             dishListView.append(dishDiv);
-    })
+    });
 
     function displayAvailableMenus() {
-      if(!$(".dish-selection").val()) return;
-      $(".dish").css("display", "none");
-      var type = "." + ($(".dish-selection").val()).split(" ")[0];
-      console.log($(type.split(" ")[0]));
-      $(type).css("display", "flex");
-        /*availableMenus.forEach(function (dish) {
+        availableMenus.forEach(function (dish) {
             var dishDiv = $("<div>").addClass("dish").attr("dish_id", dish.id);
             var image = $("<img>").attr("src", "images/" + dish.image).addClass("dish-image");
             var stringText;
@@ -86,10 +81,26 @@ var View3 = function (container, model) {
                 .append(title)
                 .append(text);
             dishListView.append(dishDiv);
-        });*/
+        });
     }
 
-    displayAvailableMenus();
+    function filterOutDishes() {
+        var dishesThatShouldShow = model.getAllDishes(model.getDishType(), model.getSearchQuery());
+        var dishes = dishesThatShouldShow.map(function(dish) {
+           return dish.id;
+        });
+
+        var div = document.getElementById("list-div");
+        var divs = div.getElementsByTagName("div");
+        for (var j = 0; j < divs.length; j++) {
+            if (dishes.indexOf(parseInt(divs[j].getAttribute("dish_id"))) != -1) {
+                divs[j].style.display = "block";
+            } else {
+                divs[j].style.display = "none";
+            }
+        }
+
+    }
 
     container
         .append(searchContainer)
@@ -99,9 +110,7 @@ var View3 = function (container, model) {
         switch (obj) {
             case Events.SEARCH_CHANGED:
             case Events.DISH_TYPE_CHANGED:
-                //dishListView.empty();
-                availableMenus = model.getAllDishes(model.getDishType(), model.getSearchQuery());
-                displayAvailableMenus();
+                filterOutDishes();
                 break;
             default:
                 console.log(obj);
