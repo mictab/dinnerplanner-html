@@ -7,23 +7,6 @@ h2 {
     margin: 0;
 }
 
-#view1 {
-    background-image: url("images/cherry.jpg");
-    display: none;
-}
-
-#view2{
-    display: none;
-}
-
-#view5{
-
-}
-
-#view6{
-
-}
-
 #title {
     display: inline-block;
     font-weight: bold;

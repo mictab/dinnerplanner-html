@@ -45,7 +45,7 @@ var View3 = function (container, model) {
 
     availableMenus.forEach(function(dish) {
        var dishDiv = $("<div>").addClass("dish");
-       var image = $("<img>").attr("src", "../images/" + dish.image).addClass("dish-image");
+       var image = $("<img>").attr("src", "images/" + dish.image).addClass("dish-image");
        var stringText;
        if (dish.description.length > 150) {
            stringText = dish.description.substr(0, 150) + "...";

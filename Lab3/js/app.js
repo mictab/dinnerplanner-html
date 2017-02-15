@@ -11,8 +11,8 @@ $(function() {
 		exampleView = new View1($("#view1"), model);
 	}
 
-	if($("#view2").length){
-        cartView = new View2($("#view2"), model);
+	if($(".view2").length){
+        cartView = new View2($(".view2"), model);
 	}
 
 	if($("#view3").length){

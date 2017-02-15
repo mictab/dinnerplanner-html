@@ -7,7 +7,7 @@ var View4 = function(container, model){
 	var dishInfoBox = $("<div>").addClass("dish-info-box");
 	dishDetailView.append(dishInfoAndIngredients.append(dishInfo.append(dishInfoBox)));
 	dishInfoBox.append($("<h3>").addClass("lasagne-title").append($("<strong>").text(dish.name)))
-	dishInfoBox.append($("<img>").addClass("dish-image").attr("src", "../images/" + dish.image));
+	dishInfoBox.append($("<img>").addClass("dish-image").attr("src", "images/" + dish.image));
 	dishInfoBox.append($("<p>").addClass("lasagne-text").text(dish.description));
 	dishInfoBox.append($("<button>").addClass("btn btn-ms btn-primary back-to-dish").text("Back to Select Dish"));
 
