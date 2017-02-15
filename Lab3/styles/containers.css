@@ -1,15 +1,15 @@
-#container1{
+#container1 {
+	/*display: none;*/
+}
+#container2 {
 	display: none;
 }
-#container2{
+#container3 {
 	display: none;
 }
-#container3{
+#container4 {
 	display: none;
 }
-#container4{
+#container5 {
 	display: none;
-}
-#container5{
-
 }

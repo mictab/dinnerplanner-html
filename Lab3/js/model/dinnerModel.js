@@ -1,20 +1,69 @@
 'use strict';
 
+const Events = {
+    GUESTS_CHANGED: "guests_changed",
+    DISH_TYPE_CHANGED: "dish_type_changed",
+    SEARCH_CHANGED: "search_changed",
+    USER_SELECTED_DISH: "user_selected_dish",
+    MENU_CHANGED: "menu_changed"
+};
+
 //DinnerModel Object constructor
 var DinnerModel = function () {
-
-    //TODO Lab 2 implement the data structure that will hold number of guest
-    // and selected dinner options for dinner menu
 
     this.numberOfGuests = 1;
     this.menu = [];
     this.dinnerTitle = "A Home Dinner Service";
     this.startDescription = "Lorem ipsum dolor sit omet Lorem ipsum dolor sit omet Lorem ipsum dolor sit omet Lorem ipsum dolor sitsi tomet Lorem";
+    this.observers = [];
+    this.selectedDishType = "";
+    this.selectedDishId = 1;
+    this.searchQuery = "";
+
+    // Labb 3
+    this.addObserver = function(observer) {
+        this.observers.push(observer);
+    };
+
+    this.notifyObservers = function(obj) {
+        for (var i = 0; i < this.observers.length; i++) {
+            console.log(this.observers[i]);
+            this.observers[i].update(obj);
+        }
+    };
 
     this.setNumberOfGuests = function (num) {
         if (num > 0) {
             this.numberOfGuests = num;
         }
+        this.notifyObservers(Events.GUESTS_CHANGED);
+    };
+
+    this.setSearchQuery = function(s) {
+        this.searchQuery = s;
+        this.notifyObservers(Events.SEARCH_CHANGED)
+    };
+
+    this.getSearchQuery = function() {
+        return this.searchQuery;
+    };
+
+    this.getDishType = function() {
+        return this.selectedDishType;
+    };
+
+    this.getSelectedDishId = function() {
+        return this.selectedDishId;
+    };
+
+    this.setDishType = function(type) {
+        this.selectedDishType = type;
+        this.notifyObservers(Events.DISH_TYPE_CHANGED);
+    };
+
+    this.setSelectedDishId = function(id) {
+        this.selectedDishId = id;
+        this.notifyObservers(Events.USER_SELECTED_DISH);
     };
 
     // should return
@@ -82,6 +131,7 @@ var DinnerModel = function () {
                 this.menu.push(dishes[i]);
             }
         }
+        this.notifyObservers(Events.MENU_CHANGED);
     };
 
     //Removes dish from menu
@@ -91,6 +141,11 @@ var DinnerModel = function () {
                 this.menu.splice(i, 1);
             }
         }
+        this.notifyObservers(Events.MENU_CHANGED);
+    };
+
+    this.cartIsEmpty = function() {
+      return this.menu.length == 0;
     };
 
     //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -112,6 +167,10 @@ var DinnerModel = function () {
             }
             return dish.type == type && found;
         });
+    };
+
+    this.getAllDishesDisregardType = function() {
+      return dishes;
     };
 
     //function that returns a dish of specific ID
