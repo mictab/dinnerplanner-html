@@ -5,7 +5,7 @@ var View6 = function(container, model){
 	var mhtitle = $("<h3>").text("My Dinner: " + model.getNumberOfGuests() + " people");
 	miniheader.append($("<div>").addClass("col-md-8").append(mhtitle));
 	container.append(miniheader);
-	var button = $("<button>").text("Go back and edit dinner");
+	var button = $("<button>").attr("id", "final-back-btn").text("Go back and edit dinner");
 	miniheader.append($("<div>").addClass("col-md-4").append(button));
 
 	var storage = $("<div>").addClass("container");
@@ -27,7 +27,7 @@ var View6 = function(container, model){
             foodRow.append(div2);
 
             var div3 = $("<div>").addClass("col-md-6");
-            div3.append($("<h5>").text("PREPERATION"));
+            div3.append($("<h5>").text("PREPARATION"));
             div3.append($("<p>").text(d.description));
             foodRow.append(div3);
 

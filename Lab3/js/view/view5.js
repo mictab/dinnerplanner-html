@@ -5,7 +5,7 @@ var View5 = function(container, model){
 	var mhtitle = $("<h3>").text("My Dinner: " + model.getNumberOfGuests() + " people");
 	miniheader.append($("<div>").addClass("col-md-8").append(mhtitle));
 	container.append(miniheader);
-	var button = $("<button>").text("Go back and edit dinner");
+	var button = $("<button>").attr("id", "edit-btn").text("Go back and edit dinner");
 	miniheader.append($("<div>").addClass("col-md-4").append(button));
 
 	var selectedMenu = $("<div>").attr("id", "selectedMenu");
