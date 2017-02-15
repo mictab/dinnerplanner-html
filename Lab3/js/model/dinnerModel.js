@@ -62,7 +62,7 @@ var DinnerModel = function () {
     };
 
     this.setSelectedDishId = function(id) {
-        this.selectedDishId = id;
+        this.selectedDishId = parseInt(id);
         this.notifyObservers(Events.USER_SELECTED_DISH);
     };
 

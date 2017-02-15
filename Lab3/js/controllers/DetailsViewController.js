@@ -5,9 +5,14 @@
 var DetailsViewsController = function (view, model) {
 
     $("#back-button").on('click', function () {
-        console.log("YAY!");
         $("#view4").css("display", "none");
-        $("#view3").css("display", "none");
-        $("#container2").css("display", "none");
+        $("#view3").css("display", "block");
+    });
+
+    $(".confirm-btn").on("click", function() {
+    	model.addDishToMenu(model.getSelectedDishId());
+    	$("#view4").css("display", "none");
+        $("#view3").css("display", "block");
+        console.log(model.getFullMenu());
     });
 };
