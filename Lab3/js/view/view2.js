@@ -19,12 +19,10 @@ var View2 = function (container, model) {
         model.getFullMenu().forEach(function (dish) {
             var li = $("<li>").addClass("table-row");
             li.append($("<span>").text(dish.name));
-            li.append($("<span>").text(model.getDishPrice(dish.id)*model.getNumberOfGuests()));
+            li.append($("<span>").text(model.getDishPrice(dish.id) * model.getNumberOfGuests()));
             listOfDishes.append(li);
         });
     }
-
-    updateCart();
 
     var lineBreak = $("<hr>");
     var totalPrice = $("<div>")
@@ -44,6 +42,23 @@ var View2 = function (container, model) {
         .attr("id", "confirm-button")
         .text("Confirm Dinner");
 
+    var deleteStarter = $("<button>")
+        .addClass("btn btn-large btn-primary")
+        .attr("type", "button")
+        .attr("id", "delete-starter")
+        .text("Delete Starter");
+
+    var deleteMain = $("<button>")
+        .addClass("btn btn-large btn-primary")
+        .attr("type", "button")
+        .attr("id", "delete-main")
+        .text("Delete Main");
+
+    var deleteDessert = $("<button>")
+        .addClass("btn btn-large btn-primary")
+        .attr("type", "button")
+        .attr("id", "delete-dessert")
+        .text("Delete Dessert");
 
     container
         .append(myDinner)
@@ -53,7 +68,10 @@ var View2 = function (container, model) {
         .append(listOfDishes)
         .append(lineBreak)
         .append(totalPrice)
-        .append(confirmButton);
+        .append(confirmButton)
+        .append(deleteStarter)
+        .append(deleteMain)
+        .append(deleteDessert);
 
     this.update = function(obj) {
         switch (obj) {
