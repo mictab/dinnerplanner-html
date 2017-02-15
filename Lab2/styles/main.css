@@ -30,9 +30,9 @@ header {
 }
 
 .cart {
-    width: 200px;
-    border: 2px solid black;
-    height: 100%;
+    min-width: 200px;
+    /*border: 2px solid black;*/
+    height: calc(100vh - 100px);
 }
 
 thead {
@@ -162,16 +162,16 @@ hr {
 }
 
 .dish-detail-view {
-    height: calc(100vh - 100px);
+    /*height: calc(100vh - 100px);*/
     flex: 1;
-    width: 300px;
+    /*width: 300px;*/
     border: 3px solid black;
 }
 
 .dish-info-and-ingredients {
     display: flex;
     flex-direction: row;
-    height: 400px;
+    /*height: 400px;*/
 }
 
 .dish-info {
@@ -185,6 +185,13 @@ hr {
     border: 2px solid black;
     border-top: 0;
     border-right: 0;
+    text-align: center;
+}
+.dish-ingredients table{
+    width: 100%;
+}
+.dish-ingredients td{
+    padding-right: 10px;
 }
 
 .confirm-row {
