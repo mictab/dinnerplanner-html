@@ -73,7 +73,7 @@ var View2 = function (container, model) {
         .append(deleteMain)
         .append(deleteDessert);
 
-    this.update = function(obj) {
+    this.update = function (obj) {
         switch (obj) {
             case Events.GUESTS_CHANGED:
             case Events.MENU_CHANGED:

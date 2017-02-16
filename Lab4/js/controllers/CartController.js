@@ -36,7 +36,7 @@ var CartController = function (view, model) {
         if (model.cartIsEmpty()) {
             return;
         }
-        var filt = model.getFullMenu().filter(function(dish) {
+        var filt = model.getFullMenu().filter(function (dish) {
             return dish.type === type;
         });
 

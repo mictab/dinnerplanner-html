@@ -7,14 +7,14 @@ var DinnerOverViewController = function (view, model) {
     var printRecipeBtn = $("#printButton");
 
     editDinnerBtn.on('click', function () {
-       $("#container4").css("display", 'none');
-       $("#container2").css("display", 'block');
-       $("#view4").css("display", "none");
-       $("#view3").css("display", "block");
+        $("#container4").css("display", 'none');
+        $("#container2").css("display", 'block');
+        $("#view4").css("display", "none");
+        $("#view3").css("display", "block");
     });
 
     printRecipeBtn.on('click', function () {
-       $("#container4").css('display', 'none');
-       $("#container5").css('display', 'block');
+        $("#container4").css('display', 'none');
+        $("#container5").css('display', 'block');
     });
 };

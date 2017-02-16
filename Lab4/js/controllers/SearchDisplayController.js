@@ -8,11 +8,11 @@ var SearchDisplayController = function (view, model) {
     var searchVal = "";
 
     $("#dish-select").on('change', function () {
-       var selectedOption = $(this).find("option:selected");
-       if (selectedOption.val() != model.getDishType()) {
-           var newVal = selectedOption.val();
-           model.setDishType(newVal);
-       }
+        var selectedOption = $(this).find("option:selected");
+        if (selectedOption.val() != model.getDishType()) {
+            var newVal = selectedOption.val();
+            model.setDishType(newVal);
+        }
     });
 
     searchInput.on('change', function () {
@@ -25,7 +25,7 @@ var SearchDisplayController = function (view, model) {
         }
     });
 
-    $("#list-div").on("click", 'img', function(){
+    $("#list-div").on("click", 'img', function () {
         $("#view3").css("display", "none");
         model.setSelectedDishId($(this).parent().attr("dish_id"));
         $("#view4").css("display", "block");

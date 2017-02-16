@@ -21,11 +21,11 @@ var DinnerModel = function () {
     this.searchQuery = "";
 
     // Labb 3
-    this.addObserver = function(observer) {
+    this.addObserver = function (observer) {
         this.observers.push(observer);
     };
 
-    this.notifyObservers = function(obj) {
+    this.notifyObservers = function (obj) {
         for (var i = 0; i < this.observers.length; i++) {
             this.observers[i].update(obj);
         }
@@ -38,29 +38,29 @@ var DinnerModel = function () {
         this.notifyObservers(Events.GUESTS_CHANGED);
     };
 
-    this.setSearchQuery = function(s) {
+    this.setSearchQuery = function (s) {
         this.searchQuery = s;
         this.notifyObservers(Events.SEARCH_CHANGED)
     };
 
-    this.getSearchQuery = function() {
+    this.getSearchQuery = function () {
         return this.searchQuery;
     };
 
-    this.getDishType = function() {
+    this.getDishType = function () {
         return this.selectedDishType;
     };
 
-    this.getSelectedDishId = function() {
+    this.getSelectedDishId = function () {
         return this.selectedDishId;
     };
 
-    this.setDishType = function(type) {
+    this.setDishType = function (type) {
         this.selectedDishType = type;
         this.notifyObservers(Events.DISH_TYPE_CHANGED);
     };
 
-    this.setSelectedDishId = function(id) {
+    this.setSelectedDishId = function (id) {
         this.selectedDishId = parseInt(id);
         this.notifyObservers(Events.USER_SELECTED_DISH);
     };
@@ -87,7 +87,7 @@ var DinnerModel = function () {
     this.getDishPrice = function (id) {
         var totalDishPrice = 0;
         for (var i = 0; i < dishes.length; i++) {
-            if(dishes[i].id === id) {
+            if (dishes[i].id === id) {
                 for (var j = 0; j < dishes[i].ingredients.length; j++) {
                     totalDishPrice += dishes[i].ingredients[j].price;
                 }
@@ -152,8 +152,8 @@ var DinnerModel = function () {
         this.notifyObservers(Events.MENU_CHANGED);
     };
 
-    this.cartIsEmpty = function() {
-      return this.menu.length == 0;
+    this.cartIsEmpty = function () {
+        return this.menu.length == 0;
     };
 
     //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -177,8 +177,8 @@ var DinnerModel = function () {
         });
     };
 
-    this.getAllDishesDisregardType = function() {
-      return dishes;
+    this.getAllDishesDisregardType = function () {
+        return dishes;
     };
 
     //function that returns a dish of specific ID
