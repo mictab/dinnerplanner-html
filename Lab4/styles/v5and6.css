@@ -1,0 +1,246 @@
+html, body {
+    height: 100%;
+    font-family: "Comic Sans MS", "Times New Roman", Arial;
+}
+
+h2 {
+    margin: 0;
+}
+
+#title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#subtitle {
+    display: inline-block;
+    font-style: italic;
+    padding-left: 10px;
+}
+
+#header {
+    border: 2px solid black;
+    background-color: #ededed;
+    padding-left: 50px;
+}
+
+#selectedMenu{
+    display: flex;
+    justify-content: center;
+    margin: 2em 15em 1em 15em;
+}
+
+.imgBox{
+    display: inline-block;
+    margin-right: 5em;
+}
+
+.imgBox img{
+    border: 2px solid black;
+}
+
+.imgBox div div{
+    background-color: #ddd
+}
+
+.imgBox div h4{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 5px;
+    border-right: 2px black solid;
+    border-left: 2px black solid;
+    border-bottom: 2px black solid;
+    max-width: 144px;
+}
+
+.imgBox .price{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.price{
+    color: crimson;
+}
+
+.menuResult{
+    border-left: 2px black solid;
+    padding-left: 1em;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#printButton{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#printButton button{
+    background-color: #F6B26B;
+    box-shadow: 4px 4px 0px #111;
+    padding: 0.3em 3em 0.3em 3em;
+    font-size: 1.25em;
+    border-color: black;
+}
+
+.miniheader{
+    background-color: #FFE599;
+    border: 2px solid black;
+    padding-left: 52px;
+}
+
+.miniheader button{
+    background-color: #F6B26B;
+    border: 2px black solid;
+    border-radius: 30px 5px 5px 30px;
+    margin-top: 1em;
+    margin-right: 1em;
+    float: right;
+}
+
+
+#view6 .foodRow{
+    margin-top: 2em;
+}
+
+#view6 img{
+    border: 2px black solid;
+    padding: 2px;
+    margin-top: 1em;
+    padding-left: 10px;
+}
+
+.separator {
+    border-bottom: 2px solid black;
+}
+
+#splashBox {
+    width: 800px;
+    height: 350px;
+    position: fixed;
+    background-color: rgba(237, 237, 237, 0.8);
+    left: 0;
+    bottom: 20%;
+}
+
+.box-content {
+    padding-left: 10px;
+}
+
+#startButton {
+    background-color: orange;
+    color: black;
+    box-shadow: 5px 5px 2px black;
+}
+
+#descriptionText {
+    font-size: 20px;
+}
+
+#lowerBoxContent {
+    padding-top: 20px;
+}
+
+#cartBox {
+    width: 200px;
+    height: 100%;
+    padding: 10px;
+    background-color: rgba(237, 237, 237, 1.0);
+}
+
+.body-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#cartBox div {
+    margin-bottom: 10px;
+}
+
+#confirmDinner {
+    background-color: orange;
+    color: black;
+    border-radius: 2px;
+    box-shadow: 5px 5px 2px black;
+    margin-top: 15px;
+}
+
+#dishAndCost {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+#dishAndCost p {
+    margin: 0;
+}
+
+#dishAndCost .dish-name {
+    flex-grow: 1;
+}
+
+#boxxy {
+    flex-direction: row;
+    display: flex;
+}
+
+#boxxy p {
+    margin: 0;
+}
+
+#boxxy .pending {
+    flex-grow: 1;
+}
+
+.dishes {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.dish {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.dish-image {
+    background-color: grey;
+    border: 2px solid black;
+    border-bottom: 0;
+    height: 150px;
+    width: 100%;
+}
+
+.dish-title {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    text-align: center;
+    background-color: grey;
+}
+
+#view2view3 {
+    flex-grow: 1;
+}
+
+.dish-text {
+    width: 100%;
+}
+
+.cancerButton {
+    background-color: orange;
+    color: black;
+    border-radius: 2px;
+    box-shadow: 5px 5px 2px black;
+}
+
+.searchBox {
+    background-color: orange;
+    width: 100%;
+}

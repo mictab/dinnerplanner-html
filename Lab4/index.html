@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dinner planner</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/containers.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/v5and6.css">
+    
+	
+
+</head>
+<body>
+	<header>
+        <div class="header-content">
+            <h1 id="header-title">HOMELETTE</h1>
+            <h4 id="header-subtitle">From the best chefs in the world directly into your kitchen</h4>
+        </div>
+    </header>
+	
+	<div id="container1">
+		<div id="view1"></div>
+	</div>
+
+	<div id="container2">
+		<div id="dinnerOverviewView" class="dinneroverview-container">
+			<div class="overview-main-content">
+				<div id="view2"></div>
+				<div id="view3"></div>
+				<div id="view4"></div>
+			</div>
+		</div>
+		
+	</div>
+	<div id="container4">
+		<div id="view5"></div>
+	</div>
+	<div id="container5">
+		<div id="view6"></div>
+	</div>
+
+
+
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script type="text/javascript" src="js/view/view1.js"></script>
+	<script type="text/javascript" src="js/view/view2.js"></script>
+	<script type="text/javascript" src="js/view/view3.js"></script>
+	<script type="text/javascript" src="js/view/view4.js"></script>
+	<script type="text/javascript" src="js/view/view5.js"></script>
+	<script type="text/javascript" src="js/view/view6.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/controllers/HomeScreenController.js"></script>
+	<script src="js/controllers/CartController.js"></script>
+	<script src="js/controllers/SearchDisplayController.js"></script>
+	<script src="js/controllers/DetailsViewController.js"></script>
+	<script src="js/controllers/DinnerOverviewController.js"></script>
+	<script src="js/controllers/InstructionsScreenViewController.js"></script>
+</body>
+</html>
+

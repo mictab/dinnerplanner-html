@@ -1,0 +1,241 @@
+html, body {
+    font-family: "Comic Sans MS";
+}
+
+.dinneroverview-container {
+    height: calc(100vh - 100px);
+}
+
+header {
+    border: 1px solid black;
+    height: 100px;
+    background-color: #ededed;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+}
+
+.header-content h4 {
+    display: flex;
+    padding-top: 25px;
+    padding-left: 70px;
+    font-style: italic;
+}
+
+.cart {
+    width: 200px;
+    /*border: 2px solid black;*/
+    height: calc(100vh - 100px);
+}
+
+thead {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: lightgrey;
+}
+
+.from-left{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.table-head{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.table-head{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+/* Stupid Bootstrap */
+ul{
+    -webkit-padding-start: 0px;
+}
+
+.table-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+#people {
+    width: 40px;
+}
+
+.total-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.btn, .btn-primary, .btn-lg {
+    background-color: orange;
+    color: black;
+    border-radius: 2px;
+    box-shadow: 5px 5px 2px black;
+}
+
+.btn:hover, .btn-primary:hover, .btn-lg, .btn:active, .btn:focus {
+    background-color: orange;
+    color: black;
+    border-radius: 2px;
+    box-shadow: 5px 5px 2px black;
+}
+
+#confirm-button {
+    width: 90%;
+    margin-left: 5%;
+}
+
+#delete-starter {
+    margin-top: 10px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: red;
+}
+
+#delete-main {
+    margin-top: 10px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: red;
+}
+
+#delete-dessert {
+    margin-top: 10px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: red;
+}
+
+.dish-list-view {
+    flex: 1;
+}
+
+.overview-main-content {
+    display: flex;
+    height: 100%;
+}
+
+.dish-list-searchbar {
+    height: 150px;
+    padding-left: 20px;
+    border: 1px solid black;
+    background-color: rgba(255, 230, 0, 0.3);
+}
+
+.dish-selection {
+    margin-left: 50px;
+    width: 400px;
+}
+
+.dish-list-listView {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    height: calc(100vh - 100px - 150px);
+}
+
+.dish {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.dish-image {
+    background-color: grey;
+    border: 2px solid black;
+    border-bottom: 0;
+    height: 150px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dish-title {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    text-align: center;
+    background-color: grey;
+}
+
+.dish-detail-view {
+    /*height: calc(100vh - 100px);*/
+    flex: 1;
+    /*width: 300px;*/
+    border: 3px solid black;
+}
+
+.dish-info-and-ingredients {
+    display: flex;
+    flex-direction: row;
+    /*height: 400px;*/
+}
+
+.dish-info {
+    flex: 0.5;
+}
+
+.dish-ingredients {
+    background-color: lightyellow;
+    flex: 0.5;
+    padding-left: 10px;
+    border: 2px solid black;
+    border-top: 0;
+    border-right: 0;
+    text-align: center;
+}
+.dish-ingredients table{
+    width: 100%;
+}
+.dish-ingredients td{
+    padding-right: 10px;
+}
+
+.confirm-row {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.dish-info-box {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.back-to-dish {
+    width: 150px;
+    padding-top: 10px;
+}
+
+.dish-preparations {
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.dish-text {
+    width: 200px;
+}
