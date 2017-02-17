@@ -12,6 +12,17 @@ const Events = {
 //DinnerModel Object constructor
 let DinnerModel = function () {
 
+    // Init for API requests
+    const API_KEY = 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB';
+    const headers = new Headers();
+    headers.append('X-Mashape-Key', API_KEY);
+    headers.append('Connection', 'keep-alive');
+    const fetchInit = {
+        headers: headers,
+        method: 'GET',
+        cache: 'default'
+    };
+
     this.numberOfGuests = 1;
     this.menu = [];
     this.dinnerTitle = "A Home Dinner Service";
@@ -176,17 +187,7 @@ let DinnerModel = function () {
 
     this.fetchAPIDishes = function () {
         const url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=16&type=${this.getDishType()}&query=${this.getSearchQuery()}`;
-        const API_KEY = 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB';
-        const headers = new Headers();
-        headers.append('X-Mashape-Key', API_KEY);
         let tempRecipes = [];
-
-        let fetchInit = {
-            headers: headers,
-            method: 'GET',
-            cache: 'default'
-        };
-
         fetch(url, fetchInit)
             .then(response => response.json())
             .then(json => {
@@ -205,16 +206,6 @@ let DinnerModel = function () {
 
     this.fetchDishDetails = function (id) {
         const url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`;
-        const API_KEY = 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB';
-        const headers = new Headers();
-        headers.append('X-Mashape-Key', API_KEY);
-
-        let fetchInit = {
-            headers: headers,
-            method: 'GET',
-            cache: 'default'
-        };
-
         fetch(url, fetchInit)
             .then(response => response.json())
             .then(json => {
@@ -225,7 +216,7 @@ let DinnerModel = function () {
             });
     };
 
-    this.setSelectedDish = function(dish) {
+    this.setSelectedDish = function (dish) {
         this.selectedDish = dish;
         this.notifyObservers(Events.USER_SELECTED_DISH);
     };
