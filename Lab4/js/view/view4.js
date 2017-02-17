@@ -1,7 +1,7 @@
 var View4 = function (container, model) {
     model.addObserver(this);
 
-    var dish = model.getDish(model.getSelectedDishId());
+    /*var dish = model.getDish(model.getSelectedDishId());
 
     var dishDetailView = $("<div>").addClass("dish-detail-view");
     var dishInfoAndIngredients = $("<div>").addClass("dish-info-and-ingredients");
@@ -66,7 +66,7 @@ var View4 = function (container, model) {
         $(".dish-ingredients .confirm-row p").text("SEK " + (model.getDishPrice(model.getSelectedDishId()) * model.getNumberOfGuests()));
         $(".dish-preparations p").text(dish.description);
 
-    }
+    }*/
 
     this.update = function (obj) {
         switch (obj) {

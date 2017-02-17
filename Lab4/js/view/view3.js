@@ -6,7 +6,6 @@ var View3 = function (container, model) {
     model.addObserver(this);
 
     container.addClass("dish-list-view");
-
     var searchContainer = $("<div>").addClass("dish-list-searchbar");
 
     /* Content of search container */
@@ -21,7 +20,7 @@ var View3 = function (container, model) {
             $("<option>").attr("value", "starter").text("Starter")
         )
         .append(
-            $("<option>").attr("value", "main dish").text("Main Dish")
+            $("<option>").attr("value", "main course").text("Main Dish")
         )
         .append(
             $("<option>").attr("value", "dessert").text("Dessert")
@@ -40,18 +39,11 @@ var View3 = function (container, model) {
     var dishListView = $("<div>").attr("id", "list-div").addClass("dish-list-listView");
 
     /* Initially, show all menus */
-    var availableMenus = model.getAllDishesDisregardType();
-
-    function displayAvailableMenus() {
-        availableMenus.forEach(function (dish) {
+    function displayAvailableMenus(dishes) {
+        dishes.forEach(function (dish) {
             var dishDiv = $("<div>").addClass("dish").attr("dish_id", dish.id);
-            var image = $("<img>").attr("src", "images/" + dish.image).addClass("dish-image");
-            var stringText;
-            if (dish.description.length > 150) {
-                stringText = dish.description.substr(0, 150) + "...";
-            } else {
-                stringText = dish.description;
-            }
+            var image = $("<img>").attr("src", "images/meatballs.jpg").addClass("dish-image");
+            var stringText = "blablabla";
             var title = $("<p>").addClass("dish-title")
                 .append($("<strong>").text(dish.name));
             var text = $("<p>").addClass("dish-text")
@@ -64,20 +56,20 @@ var View3 = function (container, model) {
         });
     }
 
-    displayAvailableMenus();
-
     container
         .append(searchContainer)
         .append(dishListView);
 
+    model.fetchAPIDishes(model.getDishType(), model.getSearchQuery());
     this.update = function (obj) {
         switch (obj) {
-            case Events.SEARCH_CHANGED:
             case Events.DISH_TYPE_CHANGED:
-                availableMenus = model.getAllDishes(model.getDishType(), model.getSearchQuery());
-                // Empty the dish list
+            case Events.SEARCH_CHANGED:
+                model.fetchAPIDishes();
                 container.find("#list-div").empty();
-                displayAvailableMenus();
+                break;
+            case Events.DISHES_CHANGED:
+                displayAvailableMenus(model.getDishes());
                 break;
         }
     }

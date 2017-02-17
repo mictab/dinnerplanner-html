@@ -2,30 +2,30 @@
  * Created by michel on 2/15/17.
  */
 
-var View2 = function (container, model) {
+let View2 = function (container, model) {
     model.addObserver(this);
 
     container.addClass("cart");
 
-    var myDinner = $("<h4>").addClass("from-left").text("My Dinner");
-    var label = $("<label>").addClass("from-left").attr("for", "people").text("People");
-    var usrInput = $("<input>").attr("type", "number").attr("name", "people").attr("id", "people").attr("value", model.getNumberOfGuests());
+    let myDinner = $("<h4>").addClass("from-left").text("My Dinner");
+    let label = $("<label>").addClass("from-left").attr("for", "people").text("People");
+    let usrInput = $("<input>").attr("type", "number").attr("name", "people").attr("id", "people").attr("value", model.getNumberOfGuests());
 
-    var tableHead = $("<div>").addClass("table-head").append($("<span>").text("Dish Name")).append($("<span>").text("Cost"));
+    let tableHead = $("<div>").addClass("table-head").append($("<span>").text("Dish Name")).append($("<span>").text("Cost"));
 
-    var listOfDishes = $("<ul>").addClass("from-left list-of-dishes");
+    let listOfDishes = $("<ul>").addClass("from-left list-of-dishes");
 
     function updateCart() {
         model.getFullMenu().forEach(function (dish) {
-            var li = $("<li>").addClass("table-row");
+            let li = $("<li>").addClass("table-row");
             li.append($("<span>").text(dish.name));
             li.append($("<span>").text(model.getDishPrice(dish.id) * model.getNumberOfGuests()));
             listOfDishes.append(li);
         });
     }
 
-    var lineBreak = $("<hr>");
-    var totalPrice = $("<div>")
+    let lineBreak = $("<hr>");
+    let totalPrice = $("<div>")
         .addClass("total-price from-left")
         .append($("<p>")
             .append(
@@ -36,25 +36,25 @@ var View2 = function (container, model) {
             )
         );
 
-    var confirmButton = $("<button>")
+    let confirmButton = $("<button>")
         .addClass("btn btn-large btn-primary")
         .attr("type", "button")
         .attr("id", "confirm-button")
         .text("Confirm Dinner");
 
-    var deleteStarter = $("<button>")
+    let deleteStarter = $("<button>")
         .addClass("btn btn-large btn-primary")
         .attr("type", "button")
         .attr("id", "delete-starter")
         .text("Delete Starter");
 
-    var deleteMain = $("<button>")
+    let deleteMain = $("<button>")
         .addClass("btn btn-large btn-primary")
         .attr("type", "button")
         .attr("id", "delete-main")
         .text("Delete Main");
 
-    var deleteDessert = $("<button>")
+    let deleteDessert = $("<button>")
         .addClass("btn btn-large btn-primary")
         .attr("type", "button")
         .attr("id", "delete-dessert")
