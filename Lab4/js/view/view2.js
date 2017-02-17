@@ -2,7 +2,7 @@
  * Created by michel on 2/15/17.
  */
 
-let View2 = function (container, model) {
+const View2 = function (container, model) {
     model.addObserver(this);
 
     container.addClass("cart");

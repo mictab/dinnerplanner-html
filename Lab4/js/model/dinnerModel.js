@@ -19,6 +19,14 @@ let DinnerModel = function () {
     this.observers = [];
     this.selectedDishType = "appetizer";
     this.selectedDishId = 1;
+    this.selectedDish = {
+        'name': "Loading...",
+        'image': "",
+        'instructions': [],
+        'dishTypes': [],
+        'servings': 4,
+        'ingredients': [],
+    };
     this.searchQuery = "";
 
     // Labb 3
@@ -63,7 +71,7 @@ let DinnerModel = function () {
 
     this.setSelectedDishId = function (id) {
         this.selectedDishId = parseInt(id);
-        this.notifyObservers(Events.USER_SELECTED_DISH);
+        this.fetchDishDetails(this.selectedDishId);
     };
 
     // should return
@@ -156,18 +164,21 @@ let DinnerModel = function () {
     this.cartIsEmpty = function () {
         return this.menu.length == 0;
     };
-    
+
 
     this.createRecipeFromData = function (obj) {
+        const baseURL = "https://spoonacular.com/recipeImages/";
         const id = obj.id;
         const title = obj.title;
-        return {'id': id, 'name': title};
+        let image = obj.image;
+        return {'id': id, 'name': title, 'image': `${baseURL}${image}`};
     };
 
     this.fetchAPIDishes = function () {
-        const url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type=${this.getDishType()}&query=${this.getSearchQuery()}`;
+        const url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=16&type=${this.getDishType()}&query=${this.getSearchQuery()}`;
+        const API_KEY = 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB';
         const headers = new Headers();
-        headers.append('X-Mashape-Key', 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB');
+        headers.append('X-Mashape-Key', API_KEY);
         let tempRecipes = [];
 
         let fetchInit = {
@@ -192,6 +203,55 @@ let DinnerModel = function () {
         return dishes;
     };
 
+    this.fetchDishDetails = function (id) {
+        const url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`;
+        const API_KEY = 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB';
+        const headers = new Headers();
+        headers.append('X-Mashape-Key', API_KEY);
+
+        let fetchInit = {
+            headers: headers,
+            method: 'GET',
+            cache: 'default'
+        };
+
+        fetch(url, fetchInit)
+            .then(response => response.json())
+            .then(json => {
+                this.setSelectedDish(this.createDishDetailFromData(json));
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+    this.setSelectedDish = function(dish) {
+        this.selectedDish = dish;
+        this.notifyObservers(Events.USER_SELECTED_DISH);
+    };
+
+    this.createDishDetailFromData = function (data) {
+        const name = data.title;
+        const image = data.image;
+        const instructions = data.instructions;
+        const dishTypes = data.dishTypes;
+        const servings = data.servings;
+        const ingredients = data.extendedIngredients;
+        return {
+            'name': name,
+            'image': image,
+            'instructions': instructions,
+            'dishTypes': dishTypes,
+            'servings': servings,
+            'ingredients': ingredients,
+        };
+
+    };
+
+    this.getSelectedDish = function () {
+        return this.selectedDish;
+    };
+
     //function that returns a dish of specific ID
     this.getDish = function (id) {
         for (let key in dishes) {
@@ -205,15 +265,5 @@ let DinnerModel = function () {
         dishes = recipes;
     };
 
-
-    // the dishes variable contains an array of all the
-    // dishes in the database. each dish has id, name, type,
-    // image (name of the image file), description and
-    // array of ingredients. Each ingredient has name,
-    // quantity (a number), price (a number) and unit (string
-    // defining the unit i.e. "g", "slices", "ml". Unit
-    // can sometimes be empty like in the example of eggs where
-    // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
     let dishes = [];
-
 };

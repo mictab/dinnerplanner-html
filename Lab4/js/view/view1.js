@@ -2,11 +2,11 @@
  * Created by michel on 2/15/17.
  */
 
-var View1 = function (container, model) {
+const View1 = function (container, model) {
     function updateHTML(title, desc) {
         container.addClass("home-screen-container");
-        var homeScreenBox = $("<div>").addClass("home-screen-box");
-        var homeScreenBoxUpperContent = $("<div>").addClass("home-screen-box-upper-content");
+        const homeScreenBox = $("<div>").addClass("home-screen-box");
+        const homeScreenBoxUpperContent = $("<div>").addClass("home-screen-box-upper-content");
 
         homeScreenBox.append(homeScreenBoxUpperContent);
         container.append(homeScreenBox);
@@ -14,7 +14,7 @@ var View1 = function (container, model) {
         homeScreenBoxUpperContent.append($("<hr/>"));
         homeScreenBoxUpperContent.append($("<p>").text(desc));
 
-        var homeScreenBoxLowerContent = $("<div>").addClass("home-screen-box-lower-content");
+        const homeScreenBoxLowerContent = $("<div>").addClass("home-screen-box-lower-content");
         homeScreenBoxLowerContent.append($("<p>").text("start quickly"));
         homeScreenBoxLowerContent.append($("<button>").addClass("btn btn-primary btn-large").attr("id", "start").text("Create New Dinner"));
 
