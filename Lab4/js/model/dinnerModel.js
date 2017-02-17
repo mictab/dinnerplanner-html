@@ -40,7 +40,6 @@ let DinnerModel = function () {
     };
     this.searchQuery = "";
 
-    // Labb 3
     this.addObserver = function (observer) {
         this.observers.push(observer);
     };
@@ -192,7 +191,7 @@ let DinnerModel = function () {
             .then(response => response.json())
             .then(json => {
                 tempRecipes = json.results.map(recipe => this.createRecipeFromData(recipe));
-                dishes = tempRecipes;
+                this.setRecipes(tempRecipes);
                 this.notifyObservers(Events.DISHES_CHANGED);
             })
             .catch(error => {
