@@ -2,15 +2,15 @@
  * Created by michel on 2/15/17.
  */
 
-var SearchDisplayController = function (view, model) {
-    var searchInput = $("#input_field");
-    var searchBtn = $("#search-button");
-    var searchVal = "";
+let SearchDisplayController = function (view, model) {
+    let searchInput = $("#input_field");
+    let searchBtn = $("#search-button");
+    let searchVal = "";
 
     $("#dish-select").on('change', function () {
-        var selectedOption = $(this).find("option:selected");
+        let selectedOption = $(this).find("option:selected");
         if (selectedOption.val() != model.getDishType()) {
-            var newVal = selectedOption.val();
+            let newVal = selectedOption.val();
             model.setDishType(newVal);
         }
     });

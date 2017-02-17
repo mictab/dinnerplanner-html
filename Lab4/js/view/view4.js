@@ -1,25 +1,25 @@
 const View4 = function (container, model) {
     model.addObserver(this);
 
-    var dish = model.getSelectedDish();
-    var dishDetailView = $("<div>").addClass("dish-detail-view");
-    var dishInfoAndIngredients = $("<div>").addClass("dish-info-and-ingredients");
-    var dishInfo = $("<div>").addClass("dish-info");
-    var dishInfoBox = $("<div>").addClass("dish-info-box");
+    let dish = model.getSelectedDish();
+    let dishDetailView = $("<div>").addClass("dish-detail-view");
+    let dishInfoAndIngredients = $("<div>").addClass("dish-info-and-ingredients");
+    let dishInfo = $("<div>").addClass("dish-info");
+    let dishInfoBox = $("<div>").addClass("dish-info-box");
     dishDetailView.append(dishInfoAndIngredients.append(dishInfo.append(dishInfoBox)));
     dishInfoBox.append($("<h3>").addClass("lasagne-title").append($("<strong>").text(dish.name)));
     dishInfoBox.append($("<img>").addClass("dish-image").attr("src", dish.image));
     dishInfoBox.append($("<p>").addClass("lasagne-text").text(dish.name));
     dishInfoBox.append($("<button>").addClass("btn btn-ms btn-primary back-to-dish").attr("id", "back-button").text("Back to Select Dish"));
 
-    var dishIngredients = $("<div>").addClass("dish-ingredients");
+    let dishIngredients = $("<div>").addClass("dish-ingredients");
     dishIngredients.append($("<h3>").text("INGREDIENTS FOR " + model.getNumberOfGuests() + " PEOPLE"));
     dishIngredients.append($("<hr>"));
-    var table = $("<table>").addClass("from-left list-of-dishes");
-    var tbody = $("<tbody>");
+    let table = $("<table>").addClass("from-left list-of-dishes");
+    let tbody = $("<tbody>");
     table.append(tbody);
     dish.ingredients.forEach(function (i) {
-        var tr = $("<tr>");
+        let tr = $("<tr>");
         tr.append($("<td>").text(Math.round((i.amount / dish.servings) * model.numberOfGuests * 100) / 100 + " " + i.unit));
         tr.append($("<td>").text(i.name));
         tr.append($("<td>").text("SEK " + (i.amount / dish.servings) * model.numberOfGuests));
@@ -31,13 +31,13 @@ const View4 = function (container, model) {
 
     dishIngredients.append($("<hr>"));
 
-    var confirmButton = $("<div>").addClass("confirm-row");
+    let confirmButton = $("<div>").addClass("confirm-row");
     confirmButton.append($("<button>").addClass("btn btn-ms btn-primary confirm-btn").text("Confirm Dish"));
     confirmButton.append($("<p>").text("SEK " + (model.getDishPrice(model.getSelectedDishId()) * model.getNumberOfGuests())));
 
     dishIngredients.append(confirmButton);
 
-    var dishPreparations = $("<div>").addClass("dish-preparations");
+    let dishPreparations = $("<div>").addClass("dish-preparations");
     dishPreparations.append($("<h2>").text("PREPARATION"));
     dishPreparations.append($("<p>").addClass("preparation-text").text(dish.instructions));
 
@@ -52,10 +52,10 @@ const View4 = function (container, model) {
         $(".dish-info-box .lasagne-text").text(dish.name);
 
         $(".dish-ingredients h3").text("INGREDIENTS FOR " + model.numberOfGuests + " PEOPLE");
-        var tbody = $(".dish-ingredients tbody");
+        let tbody = $(".dish-ingredients tbody");
         tbody.empty();
         dish.ingredients.forEach(function (i) {
-            var tr = $("<tr>");
+            let tr = $("<tr>");
             tr.append($("<td>").text(Math.round((i.amount / dish.servings) * model.numberOfGuests * 100) / 100 + " " + i.unit));
             tr.append($("<td>").text(i.name));
             tr.append($("<td>").text("SEK " + (i.amount * model.numberOfGuests)));

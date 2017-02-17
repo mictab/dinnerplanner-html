@@ -1,32 +1,32 @@
-var View5 = function (container, model) {
+let View5 = function (container, model) {
     model.addObserver(this);
 
-    var miniheader = $("<div>").addClass("row").addClass("miniheader");
-    var mhtitle = $("<h3>").text("My Dinner: " + model.getNumberOfGuests() + " people");
+    let miniheader = $("<div>").addClass("row").addClass("miniheader");
+    let mhtitle = $("<h3>").text("My Dinner: " + model.getNumberOfGuests() + " people");
     miniheader.append($("<div>").addClass("col-md-8").append(mhtitle));
     container.append(miniheader);
-    var button = $("<button>").attr("id", "edit-btn").text("Go back and edit dinner");
+    let button = $("<button>").attr("id", "edit-btn").text("Go back and edit dinner");
     miniheader.append($("<div>").addClass("col-md-4").append(button));
 
-    var selectedMenu = $("<div>").attr("id", "selectedMenu");
+    let selectedMenu = $("<div>").attr("id", "selectedMenu");
 
     function insert_dishes() {
-        var menu = model.getFullMenu();
+        let menu = model.getFullMenu();
         menu.forEach(function (d) {
-            var imgBox = $("<div>").addClass("imgBox");
-            var tempDiv = $("<div>");
-            var img = $("<img>").attr("src", "images/" + d.image);
+            let imgBox = $("<div>").addClass("imgBox");
+            let tempDiv = $("<div>");
+            let img = $("<img>").attr("src", "images/" + d.image);
             tempDiv.append(img);
             tempDiv.append($("<div>").append($("<h4>").text(d.name)));
             imgBox.append(tempDiv);
 
-            var price = $("<div>").addClass("price").text(model.getDishPrice(d.id) * model.getNumberOfGuests() + " SEK");
+            let price = $("<div>").addClass("price").text(model.getDishPrice(d.id) * model.getNumberOfGuests() + " SEK");
             imgBox.append(price);
             selectedMenu.append(imgBox);
 
         });
 
-        var menuResult = $("<div>").addClass("menuResult");
+        let menuResult = $("<div>").addClass("menuResult");
         menuResult.append($("<p>").text("Total:"));
         menuResult.append($("<div>").addClass("price").text(model.getTotalMenuPrice() + " SEK"));
 
