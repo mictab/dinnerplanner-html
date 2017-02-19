@@ -61,7 +61,7 @@ const View3 = function (container, model) {
         switch (obj) {
             case Events.DISH_TYPE_CHANGED:
             case Events.SEARCH_CHANGED:
-                model.fetchAPIDishes();
+                model.fetchAPIDishes(model.getDishType(), model.getSearchQuery());
                 container.find("#list-div").empty();
                 break;
             case Events.DISHES_CHANGED:
