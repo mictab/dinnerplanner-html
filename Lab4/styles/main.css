@@ -2,6 +2,33 @@ html, body {
     font-family: "Comic Sans MS";
 }
 
+#loadingBar{
+    height: 1.8em;
+    width: 100vw;
+    font-size: 2em;
+    background-color: orange;
+    display: none;
+}
+
+@keyframes example {
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(90deg);}
+    50%  {transform: rotate(180deg);}
+    75%  {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
+}
+
+#loadingBar .loading{
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: red;
+    animation-name: example;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    display: inline-block;
+}
+
 .dinneroverview-container {
     height: calc(100vh - 100px);
 }

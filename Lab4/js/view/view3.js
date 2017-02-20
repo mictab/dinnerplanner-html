@@ -56,12 +56,22 @@ const View3 = function (container, model) {
         .append(searchContainer)
         .append(dishListView);
 
-    model.fetchAPIDishes(model.getDishType(), model.getSearchQuery());
+    model.fetchAPIDishes(function(m){});
     this.update = function (obj) {
         switch (obj) {
             case Events.DISH_TYPE_CHANGED:
             case Events.SEARCH_CHANGED:
-                model.fetchAPIDishes(model.getDishType(), model.getSearchQuery());
+                $("#loadingBar").show();
+                $("#loadingBar div").show();
+                $("#loadingBar span").text("Loading...");
+                model.fetchAPIDishes(function(m){
+                    if(m === "success"){
+                        $("#loadingBar").hide();
+                    }else{
+                        $("#loadingBar span").text("Failed!");
+                        $("#loadingBar div").hide();
+                    }
+                });
                 container.find("#list-div").empty();
                 break;
             case Events.DISHES_CHANGED:

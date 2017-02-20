@@ -169,7 +169,7 @@ let DinnerModel = function () {
         return {'id': id, 'name': title, 'image': `${baseURL}${image}`};
     };
 
-    this.fetchAPIDishes = function () {
+    this.fetchAPIDishes = function (cb) {
         const url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=16&type=${this.getDishType()}&query=${this.getSearchQuery()}`;
         let tempRecipes = [];
         fetch(url, fetchInit)
@@ -178,9 +178,11 @@ let DinnerModel = function () {
                 tempRecipes = json.results.map(recipe => this.createRecipeFromData(recipe));
                 this.setRecipes(tempRecipes);
                 this.notifyObservers(Events.DISHES_CHANGED);
+                cb("success");
             })
             .catch(error => {
                 console.log(error);
+                cb(error);
             });
     };
 
