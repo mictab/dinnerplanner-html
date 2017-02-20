@@ -135,23 +135,14 @@ let DinnerModel = function () {
     //Adds the passed dish to the menu. If the dish of that type already exists on the menu
     //it is removed from the menu and the new one added.
     this.addDishToMenu = function () {
-        /*let type;
-        let dish;
-        for (let i = 0; i < dishes.length; i++) {
-            if (dishes[i].id == id) {
-                type = dishes[i].type;
-                dish = dishes[i];
-                break;
-            }
-        }
-
+        let dish = this.getSelectedDish();
+        const dishType = dish.type;
         for (let j = 0; j < this.menu.length; j++) {
-            if (this.menu[j].type === type) {
+            if (this.menu[j].type === dishType) {
                 this.menu.splice(j, 1);
             }
-        }*/
-
-        this.menu.push(this.getSelectedDish());
+        }
+        this.menu.push(dish);
         this.notifyObservers(Events.MENU_CHANGED);
     };
 
@@ -202,7 +193,7 @@ let DinnerModel = function () {
         fetch(url, fetchInit)
             .then(response => response.json())
             .then(json => {
-                this.setSelectedDish(this.createDishDetailFromData(json));
+                this.setSelectedDish(this.createDishDetailFromData(id, json));
             })
             .catch(error => {
                 console.log(error);
@@ -214,7 +205,7 @@ let DinnerModel = function () {
         this.notifyObservers(Events.USER_SELECTED_DISH);
     };
 
-    this.createDishDetailFromData = function (data) {
+    this.createDishDetailFromData = function (id, data) {
         const name = data.title;
         const image = data.image;
         const instructions = data.instructions;
@@ -228,6 +219,7 @@ let DinnerModel = function () {
         const price = ingredientsArr.reduce((a,b)=>{return a + b.price}, 0);
         return {
             'name': name,
+            'id': id,
             'image': image,
             'description': instructions,
             'type': this.getDishType(),

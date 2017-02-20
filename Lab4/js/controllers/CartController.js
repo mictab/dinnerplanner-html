@@ -25,7 +25,7 @@ var CartController = function (view, model) {
     });
 
     $("#delete-main").on('click', function () {
-        deleteDishForType("main dish");
+        deleteDishForType("main course");
     });
 
     $("#delete-dessert").on('click', function () {
