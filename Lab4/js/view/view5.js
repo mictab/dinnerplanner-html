@@ -19,8 +19,8 @@ let View5 = function (container, model) {
             tempDiv.append(img);
             tempDiv.append($("<div>").append($("<h4>").text(d.name)));
             imgBox.append(tempDiv);
-
-            let price = $("<div>").addClass("price").text(model.getDishPrice(d.id) * model.getNumberOfGuests() + " SEK");
+            const roundedPrice = Math.round(d.price * model.getNumberOfGuests() * 100) / 100;
+            let price = $("<div>").addClass("price").text(roundedPrice + " SEK");
             imgBox.append(price);
             selectedMenu.append(imgBox);
 
