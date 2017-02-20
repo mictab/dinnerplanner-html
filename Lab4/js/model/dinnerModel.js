@@ -216,8 +216,8 @@ let DinnerModel = function () {
             let x = ingredients[ing];
             ingredientsArr.push({name: x.name, quantity: x.amount, unit: x.unit, price: x.amount});
         }
-        const price = ingredientsArr.reduce((a,b)=>{console.log(b.quantity);return a + b.price}, 0);
-        console.log(price / servings);
+        const price = ingredientsArr.reduce((a,b)=>{return a + b.price}, 0);
+
         return {
             'name': name,
             'id': id,
