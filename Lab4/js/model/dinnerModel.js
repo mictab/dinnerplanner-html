@@ -107,7 +107,7 @@ let DinnerModel = function () {
         const ingredients = this.getSelectedDish().ingredients;
         let sum = 0;
         for (let index in ingredients) {
-            sum += ingredients[index].amount;
+            sum += ingredients[index].quantity;
         }
         return sum;
     };
@@ -126,10 +126,8 @@ let DinnerModel = function () {
     //Returns the total price of the menu (all the ingredients multiplied by number of guests).
     this.getTotalMenuPrice = function () {
         let sum = 0;
-        for (let i = 0; i < this.menu.length; i++) {
-            for (let j = 0; j < this.menu[i].ingredients.length; j++) {
-                sum += this.menu[i].ingredients[j].price;
-            }
+        for (let dish in this.menu) {
+            sum += this.menu[dish].price;
         }
         return sum * this.numberOfGuests;
     };
