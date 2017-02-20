@@ -17,7 +17,7 @@ const View3 = function (container, model) {
     const dishSelection = $("<select>").addClass("dish-selection").attr("id", "dish-select");
     dishSelection
         .append(
-            $("<option>").attr("value", "starter").text("Starter")
+            $("<option>").attr("value", "appetizer").text("Starter")
         )
         .append(
             $("<option>").attr("value", "main course").text("Main Dish")
