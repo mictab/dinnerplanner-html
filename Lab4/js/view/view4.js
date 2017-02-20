@@ -58,7 +58,7 @@ const View4 = function (container, model) {
             let tr = $("<tr>");
             tr.append($("<td>").text(Math.round((i.quantity / dish.servings) * model.numberOfGuests * 100) / 100 + " " + i.unit));
             tr.append($("<td>").text(i.name));
-            tr.append($("<td>").text("SEK " + Math.round((i.quantity / dish.servings) * model.numberOfGuests)));
+            tr.append($("<td>").text("SEK " + Math.round((i.quantity / dish.servings) * model.numberOfGuests * 100) / 100));
             tbody.append(tr);
         });
         $(".dish-ingredients .confirm-row p").text("SEK " + parseInt(((model.getDishPrice() / dish.servings) * model.getNumberOfGuests() * 100)) / 100);

@@ -129,7 +129,7 @@ let DinnerModel = function () {
         for (let dish in this.menu) {
             sum += this.menu[dish].price;
         }
-        return sum * this.numberOfGuests;
+        return Math.round(sum * this.numberOfGuests * 100)/100;
     };
 
     //Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -223,9 +223,10 @@ let DinnerModel = function () {
         const ingredientsArr = [];
         for (let ing in ingredients) {
             let x = ingredients[ing];
-            ingredientsArr.push({name: x.name, quantity: x.amount, unit: x.unit, price: parseInt(x.amount)});
+            ingredientsArr.push({name: x.name, quantity: x.amount, unit: x.unit, price: x.amount});
         }
-        const price = ingredientsArr.reduce((a,b)=>{return a + b.price}, 0);
+        const price = ingredientsArr.reduce((a,b)=>{console.log(b.quantity);return a + b.price}, 0);
+        console.log(price / servings);
         return {
             'name': name,
             'image': image,
@@ -233,7 +234,7 @@ let DinnerModel = function () {
             'type': this.getDishType(),
             'servings': servings,
             'ingredients': ingredientsArr,
-            'price': price,
+            'price': price/servings,
         };
 
     };
