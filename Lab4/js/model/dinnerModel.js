@@ -103,17 +103,13 @@ let DinnerModel = function () {
         return this.menu;
     };
 
-    this.getDishPrice = function (id) {
-        let totalDishPrice = 0;
-        for (let i = 0; i < dishes.length; i++) {
-            if (dishes[i].id === id) {
-                for (let j = 0; j < dishes[i].ingredients.length; j++) {
-                    totalDishPrice += dishes[i].ingredients[j].price;
-                }
-            }
-
+    this.getDishPrice = function () {
+        const ingredients = this.getSelectedDish().ingredients;
+        let sum = 0;
+        for (let index in ingredients) {
+            sum += ingredients[index].amount;
         }
-        return totalDishPrice;
+        return sum * this.getNumberOfGuests();
     };
 
     //Returns all ingredients for all the dishes on the menu.
@@ -140,8 +136,8 @@ let DinnerModel = function () {
 
     //Adds the passed dish to the menu. If the dish of that type already exists on the menu
     //it is removed from the menu and the new one added.
-    this.addDishToMenu = function (id) {
-        let type;
+    this.addDishToMenu = function () {
+        /*let type;
         let dish;
         for (let i = 0; i < dishes.length; i++) {
             if (dishes[i].id == id) {
@@ -155,9 +151,9 @@ let DinnerModel = function () {
             if (this.menu[j].type === type) {
                 this.menu.splice(j, 1);
             }
-        }
+        }*/
 
-        this.menu.push(dish);
+        this.menu.push(this.getSelectedDish());
         this.notifyObservers(Events.MENU_CHANGED);
     };
 
@@ -224,16 +220,20 @@ let DinnerModel = function () {
         const name = data.title;
         const image = data.image;
         const instructions = data.instructions;
-        const dishTypes = data.dishTypes;
         const servings = data.servings;
         const ingredients = data.extendedIngredients;
+        const ingredientsArr = [];
+        for (let ing in ingredients) {
+            let x = ingredients[ing];
+            ingredientsArr.push({name: x.name, quantity: x.amount, unit: x.unit, price: parseInt(x.amount)});
+        }
         return {
             'name': name,
             'image': image,
-            'instructions': instructions,
-            'dishTypes': dishTypes,
+            'description': instructions,
+            'type': this.getDishType(),
             'servings': servings,
-            'ingredients': ingredients,
+            'ingredients': ingredientsArr,
         };
 
     };

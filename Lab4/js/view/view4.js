@@ -39,7 +39,7 @@ const View4 = function (container, model) {
 
     let dishPreparations = $("<div>").addClass("dish-preparations");
     dishPreparations.append($("<h2>").text("PREPARATION"));
-    dishPreparations.append($("<p>").addClass("preparation-text").text(dish.instructions));
+    dishPreparations.append($("<p>").addClass("preparation-text").text(dish.description));
 
     dishDetailView.append(dishPreparations);
 

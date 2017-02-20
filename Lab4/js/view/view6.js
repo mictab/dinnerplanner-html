@@ -15,7 +15,7 @@ var View6 = function (container, model) {
         menu.forEach(function (d) {
             var foodRow = $("<div>").addClass("row").addClass("foodRow");
             var div1 = $("<div>").addClass("col-md-2");
-            div1.append($("<img>").attr("src", "images/" + d.image));
+            div1.append($("<img>").attr("src", d.image).attr("width", 140).attr("height", 140));
             foodRow.append(div1);
             storage.append(foodRow);
 

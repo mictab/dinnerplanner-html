@@ -15,7 +15,7 @@ let View5 = function (container, model) {
         menu.forEach(function (d) {
             let imgBox = $("<div>").addClass("imgBox");
             let tempDiv = $("<div>");
-            let img = $("<img>").attr("src", "images/" + d.image);
+            let img = $("<img>").attr("src", d.image).attr("width", 140).attr("height", 140);
             tempDiv.append(img);
             tempDiv.append($("<div>").append($("<h4>").text(d.name)));
             imgBox.append(tempDiv);
