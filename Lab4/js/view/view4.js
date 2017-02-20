@@ -62,7 +62,7 @@ const View4 = function (container, model) {
             tbody.append(tr);
         });
         $(".dish-ingredients .confirm-row p").text("SEK " + parseInt(((model.getDishPrice() / dish.servings) * model.getNumberOfGuests() * 100)) / 100);
-        $(".dish-preparations p").text(dish.instructions);
+        $(".dish-preparations p").text(dish.description);
 
     }
 

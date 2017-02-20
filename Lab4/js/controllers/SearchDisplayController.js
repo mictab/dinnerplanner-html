@@ -27,7 +27,19 @@ let SearchDisplayController = function (view, model) {
 
     $("#list-div").on("click", 'img', function () {
         $("#view3").css("display", "none");
-        model.setSelectedDishId($(this).parent().attr("dish_id"));
-        $("#view4").css("display", "block");
+        $("#loadingBar").show();
+        $("#loadingBar div").show();
+        $("#loadingBar span").text("Loading...");
+        model.setSelectedDishId($(this).parent().attr("dish_id"), (res) => {
+            "use strict";
+            if (res === "success") {
+                $("#loadingBar").hide();
+                $("#view4").css("display", "block");
+            } else {
+                $("#loadingBar span").text("Failed!");
+                $("#loadingBar div").hide();
+
+            }
+        });
     })
 };

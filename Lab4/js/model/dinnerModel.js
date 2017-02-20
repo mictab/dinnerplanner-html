@@ -79,9 +79,9 @@ let DinnerModel = function () {
         this.notifyObservers(Events.DISH_TYPE_CHANGED);
     };
 
-    this.setSelectedDishId = function (id) {
+    this.setSelectedDishId = function (id, cb) {
         this.selectedDishId = parseInt(id);
-        this.fetchDishDetails(this.selectedDishId);
+        this.fetchDishDetails(this.selectedDishId, cb);
     };
 
     // should return
@@ -190,15 +190,17 @@ let DinnerModel = function () {
         return dishes;
     };
 
-    this.fetchDishDetails = function (id) {
+    this.fetchDishDetails = function (id, cb) {
         const url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`;
         fetch(url, fetchInit)
             .then(response => response.json())
             .then(json => {
                 this.setSelectedDish(this.createDishDetailFromData(id, json));
+                cb("success");
             })
             .catch(error => {
                 console.log(error);
+                cb(error);
             });
     };
 
