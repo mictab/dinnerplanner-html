@@ -21,7 +21,7 @@ var CartController = function (view, model) {
     });
 
     $("#delete-starter").on('click', function () {
-        deleteDishForType("starter");
+        deleteDishForType("appetizer");
     });
 
     $("#delete-main").on('click', function () {
