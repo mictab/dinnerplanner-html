@@ -20,9 +20,9 @@ const View4 = function (container, model) {
     table.append(tbody);
     dish.ingredients.forEach(function (i) {
         let tr = $("<tr>");
-        tr.append($("<td>").text(Math.round((i.amount / dish.servings) * model.numberOfGuests * 100) / 100 + " " + i.unit));
+        tr.append($("<td>").text(Math.round((i.quantity / dish.servings) * model.numberOfGuests * 100) / 100 + " " + i.unit));
         tr.append($("<td>").text(i.name));
-        tr.append($("<td>").text("SEK " + (i.amount / dish.servings) * model.numberOfGuests));
+        tr.append($("<td>").text("SEK " + (i.price / dish.servings) * model.numberOfGuests));
         tbody.append(tr);
     });
 
@@ -56,9 +56,9 @@ const View4 = function (container, model) {
         tbody.empty();
         dish.ingredients.forEach(function (i) {
             let tr = $("<tr>");
-            tr.append($("<td>").text(Math.round((i.amount / dish.servings) * model.numberOfGuests * 100) / 100 + " " + i.unit));
+            tr.append($("<td>").text(Math.round((i.quantity / dish.servings) * model.numberOfGuests * 100) / 100 + " " + i.unit));
             tr.append($("<td>").text(i.name));
-            tr.append($("<td>").text("SEK " + (i.amount * model.numberOfGuests)));
+            tr.append($("<td>").text("SEK " + (i.quantity * model.numberOfGuests)));
             tbody.append(tr);
         });
         $(".dish-ingredients .confirm-row p").text("SEK " + 5 * model.getNumberOfGuests());

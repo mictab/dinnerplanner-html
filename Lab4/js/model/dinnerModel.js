@@ -109,7 +109,7 @@ let DinnerModel = function () {
         for (let index in ingredients) {
             sum += ingredients[index].amount;
         }
-        return sum * this.getNumberOfGuests();
+        return sum;
     };
 
     //Returns all ingredients for all the dishes on the menu.
@@ -227,6 +227,7 @@ let DinnerModel = function () {
             let x = ingredients[ing];
             ingredientsArr.push({name: x.name, quantity: x.amount, unit: x.unit, price: parseInt(x.amount)});
         }
+        const price = ingredientsArr.reduce((a,b)=>{return a + b.price}, 0);
         return {
             'name': name,
             'image': image,
@@ -234,6 +235,7 @@ let DinnerModel = function () {
             'type': this.getDishType(),
             'servings': servings,
             'ingredients': ingredientsArr,
+            'price': price,
         };
 
     };

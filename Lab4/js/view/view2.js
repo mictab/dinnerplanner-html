@@ -19,7 +19,7 @@ const View2 = function (container, model) {
         model.getFullMenu().forEach(function (dish) {
             let li = $("<li>").addClass("table-row");
             li.append($("<span>").text(dish.name));
-            li.append($("<span>").text(model.getDishPrice(dish.id) * model.getNumberOfGuests()));
+            li.append($("<span>").text(dish.price * model.getNumberOfGuests()));
             listOfDishes.append(li);
         });
     }
