@@ -1,0 +1,18 @@
+.btn, .btn-primary, .btn-lg {
+  background-color: orange;
+  color: black;
+  border-radius: 2px;
+  box-shadow: 5px 5px 2px black; }
+
+.btn:hover, .btn-primary:hover, .btn-lg {
+  background-color: orange;
+  color: black;
+  border-radius: 2px;
+  box-shadow: 5px 5px 2px black; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75), transparent); }
+
+/*# sourceMappingURL=shared.scss.map */

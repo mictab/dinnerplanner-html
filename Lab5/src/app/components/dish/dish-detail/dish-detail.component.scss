@@ -1,0 +1,71 @@
+@import "../../../scss/shared.scss";
+
+.dish-detail-view {
+  /*height: calc(100vh - 100px);*/
+  flex: 1;
+  width: calc(100vw - 200px);
+  /*width: 300px;*/
+  border: 3px solid black;
+}
+
+.dish-info-and-ingredients {
+  display: flex;
+  flex-direction: row;
+  /*height: 400px;*/
+}
+
+.dish-info {
+  flex: 0.5;
+}
+
+.dish-info-box {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.back-to-dish {
+  width: 150px;
+  padding-top: 10px;
+}
+
+.dish-ingredients {
+  background-color: lightyellow;
+  flex: 0.5;
+  padding-left: 10px;
+  border: 2px solid black;
+  border-top: 0;
+  border-right: 0;
+  text-align: center;
+
+  table {
+    width: 100%;
+  }
+
+  td {
+    padding-right: 10px;
+  }
+}
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.dish-preparations {
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.dinneroverview-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.overview-main-content {
+  display: flex;
+  height: 100%;
+}

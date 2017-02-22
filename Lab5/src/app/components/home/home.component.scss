@@ -1,0 +1,18 @@
+@import "../../scss/shared.scss";
+
+.home-screen-box {
+  width: 40%;
+  height: 400px;
+  bottom: 20%;
+  position: absolute;
+  padding-left: 25px;
+  display: flex;
+  padding-right: 5px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $home-box-color;
+}
+
+.home-screen-box-lower-content {
+  padding-bottom: 10px;
+}

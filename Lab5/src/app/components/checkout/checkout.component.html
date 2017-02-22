@@ -1,0 +1,24 @@
+<div class="cart">
+    <h4 class="from-left">My Dinner</h4>
+    <label class="from-left" for="people">People</label>
+    <input type="number" name="people" id="people" value={{numberOfGuests}}>
+    <div class="table-head">
+        <span>Dish Name</span>
+        <span>Cost</span>
+    </div>
+    <ul class="from-left list-of-dishes">
+        <div *ngIf="cartHasItems">
+            <li *ngFor="let item of cart" class="table-row">
+                <span>{{item}}</span>
+                <span>1.31</span>
+            </li>
+        </div>
+    </ul>
+    <hr>
+    <div class="total-price from-left">
+        <p><span>SEK </span><span class="totalPrice">{{totalPrice}}</span></p></div>
+    <button class="btn btn-large btn-primary" type="button" id="confirm-button">Confirm Dinner</button>
+    <button class="btn btn-large btn-primary" type="button" id="delete-starter">Delete Starter</button>
+    <button class="btn btn-large btn-primary" type="button" id="delete-main">Delete Main</button>
+    <button class="btn btn-large btn-primary" type="button" id="delete-dessert">Delete Dessert</button>
+</div>

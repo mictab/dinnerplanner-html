@@ -1,0 +1,75 @@
+.btn, .btn-primary, .btn-lg {
+  background-color: orange;
+  color: black;
+  border-radius: 2px;
+  box-shadow: 5px 5px 2px black; }
+
+.btn:hover, .btn-primary:hover, .btn-lg {
+  background-color: orange;
+  color: black;
+  border-radius: 2px;
+  box-shadow: 5px 5px 2px black; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75), transparent); }
+
+.cart {
+  width: 200px;
+  /*border: 2px solid black;*/
+  height: calc(100vh - 100px); }
+
+.from-left {
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.table-head {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.table-head {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold; }
+
+.total-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+
+#delete-starter {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+  background-color: red; }
+
+#delete-main {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+  background-color: red; }
+
+#delete-dessert {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+  background-color: red; }
+
+#confirm-button {
+  width: 90%;
+  margin-left: 5%; }
+
+#people {
+  width: 40px; }
+
+.table-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+/*# sourceMappingURL=checkout.component.css.map */
