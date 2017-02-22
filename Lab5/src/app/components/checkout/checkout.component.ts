@@ -13,20 +13,17 @@ import {DinnerModel} from "../../models/dinner.model";
 
 export class CheckoutComponent {
     private menu: Recipe[];
-    private sub: any = null;
     private totalPrice = 10;
     private numberOfGuests = 33;
-    private cartHasItems = true;
-    private cart = ["A", "B", "C", "D"];
 
     constructor(private dinnerModel: DinnerModel) {
+
     }
 
     ngOnInit() {
-        this.sub = this.dinnerModel.getRecipesInMenu().subscribe((menu) => this.menu = menu);
+        this.dinnerModel.getMenu().subscribe(menu => {
+            this.menu = menu
+        })
     }
 
-    ngOnDestroy() {
-        this.sub.unsubscribe();
-    }
 }

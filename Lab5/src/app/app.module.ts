@@ -12,6 +12,8 @@ import {FormsModule} from "@angular/forms";
 import {DinnerModel} from "./models/dinner.model";
 import {CheckoutComponent} from "./components/checkout/checkout.component";
 import {DishDetailComponent} from "./components/dish/dish-detail/dish-detail.component";
+import {InstructionsComponent} from "./components/instructions/instructions.component";
+import {DinnerOverviewComponent} from "./components/dinner-overview/dinner-overview.component";
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import {DishDetailComponent} from "./components/dish/dish-detail/dish-detail.com
         HomeComponent,
         CheckoutComponent,
         DishListComponent,
-        DishDetailComponent
+        DishDetailComponent,
+        InstructionsComponent,
+        DinnerOverviewComponent
     ],
     imports: [
         BrowserModule,

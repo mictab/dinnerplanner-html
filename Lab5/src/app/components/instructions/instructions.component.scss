@@ -1,0 +1,57 @@
+@import "../../scss/shared.scss";
+
+.miniheader {
+  background-color: #FFE599;
+  border: 2px solid black;
+  padding-left: 52px;
+
+  button {
+    background-color: #F6B26B;
+    border: 2px black solid;
+    border-radius: 30px 5px 5px 30px;
+    margin-top: 1em;
+    margin-right: 1em;
+    float: right;
+  }
+}
+
+#printButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+
+  button {
+    background-color: #F6B26B;
+    box-shadow: 4px 4px 0px #111;
+    padding: 0.3em 3em 0.3em 3em;
+    font-size: 1.25em;
+    border-color: black;
+  }
+}
+
+#selectedMenu {
+  display: flex;
+  justify-content: center;
+  margin: 2em 15em 1em 15em;
+}
+
+.imgBox {
+  display: inline-block;
+  margin-right: 5em;
+}
+
+.price {
+  color: crimson;
+}
+
+.menuResult {
+  border-left: 2px black solid;
+  padding-left: 1em;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.separator {
+  border-bottom: 2px solid black;
+}

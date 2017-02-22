@@ -8,8 +8,8 @@
     </div>
     <ul class="from-left list-of-dishes">
         <div *ngIf="cartHasItems">
-            <li *ngFor="let item of cart" class="table-row">
-                <span>{{item}}</span>
+            <li *ngFor="let item of menu" class="table-row">
+                <span>{{item.name}}</span>
                 <span>1.31</span>
             </li>
         </div>

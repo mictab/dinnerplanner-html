@@ -4,78 +4,24 @@
         <div class="dish-list-view">
             <div class="dish-list-searchbar"><h1>SELECT DISH</h1>
                 <hr>
-                <input type="text" placeholder="Enter key words" id="input_field">
-                <button class="btn btn-sm btn-primary" id="search-button">Search</button>
-                <select class="dish-selection" id="dish-select">
+                <input #textBox type="text" placeholder="Enter key words" id="input_field">
+                <button class="btn btn-sm btn-primary" id="search-button"
+                        (click)="searchForDishes(selectBox.value, textBox.value.toLowerCase())">Search
+                </button>
+                <select #selectBox class="dish-selection" id="dish-select"
+                        (change)="searchForDishes(selectBox.value, textBox.value.toLowerCase())">
                     <option value="appetizer">Starter</option>
                     <option value="main course">Main Dish</option>
                     <option value="dessert">Dessert</option>
-                </select></div>
+                </select>
+            </div>
             <div id="list-div" class="dish-list-listView">
-                <div class="dish" dish_id="548169"><img
-                        src="https://spoonacular.com/recipeImages/Chocolate-Crunch-Snack-Mix--3-Points-548169.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Chocolate Crunch Snack Mix – 3 Points</strong></p></div>
-                <div class="dish" dish_id="667917"><img
-                        src="https://spoonacular.com/recipeImages/Cilantro-Salsa-667917.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Cilantro Salsa</strong></p></div>
-                <div class="dish" dish_id="560638"><img
-                        src="https://spoonacular.com/recipeImages/Pumpkin-Hummus-560638.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Pumpkin Hummus</strong></p></div>
-                <div class="dish" dish_id="577598"><img
-                        src="https://spoonacular.com/recipeImages/Grilled-Asparagus-and-Chili-Orange-Quinoa-Spring-Rolls-577598.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Grilled Asparagus and Chili-Orange Quinoa Spring Rolls</strong></p>
+                <div class="dish" id={{recipe.id}} *ngFor="let recipe of recipes">
+                    <img src={{recipe.image}} class="dish-image" (click)="searchForDishes()" [routerLink]="['/detail']">
+                    <p class="dish-title">
+                        <strong>{{recipe.name}}</strong>
+                    </p>
                 </div>
-                <div class="dish" dish_id="222482"><img
-                        src="https://spoonacular.com/recipeImages/Roasted-vegetable---feta-tostada-222482.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Roasted vegetable &amp; feta tostada</strong></p></div>
-                <div class="dish" dish_id="698704"><img
-                        src="https://spoonacular.com/recipeImages/black-eyed-pea-dip-698704.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Black-Eyed Pea Dip</strong></p></div>
-                <div class="dish" dish_id="474094"><img
-                        src="https://spoonacular.com/recipeImages/Skinny-Hot-Spinach-and-Artichoke-Dip-with-Fontina-Cheese-474094.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Skinny Hot Spinach and Artichoke Dip with Fontina Cheese</strong></p>
-                </div>
-                <div class="dish" dish_id="558050"><img src="https://spoonacular.com/recipeImages/Guacamole-558050.jpg"
-                                                        class="dish-image">
-                    <p class="dish-title"><strong>Guacamole</strong></p></div>
-                <div class="dish" dish_id="21366"><img
-                        src="https://spoonacular.com/recipeImages/green_garlic_guacamole-21366.jpg" class="dish-image">
-                    <p class="dish-title"><strong>Green Garlic Guacamole</strong></p></div>
-                <div class="dish" dish_id="710542"><img
-                        src="https://spoonacular.com/recipeImages/sweet-potato-and-black-bean-nachos-with-green-chile-salsa-710542.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Sweet Potato and Black Bean Nachos with Green Chile Salsa</strong></p>
-                </div>
-                <div class="dish" dish_id="486616"><img
-                        src="https://spoonacular.com/recipeImages/Cilantro-Lime-Turkey-Taco-Lettuce-Wraps-486616.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Cilantro-Lime Turkey Taco Lettuce Wraps</strong></p></div>
-                <div class="dish" dish_id="462117"><img
-                        src="https://spoonacular.com/recipeImages/Asian-Roll-Lettuce-Wrap-462117.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Asian Roll Lettuce Wrap</strong></p></div>
-                <div class="dish" dish_id="558553"><img
-                        src="https://spoonacular.com/recipeImages/Healthy-Hot-Spinach---Artichoke-Dip-558553.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Healthy Hot Spinach &amp; Artichoke Dip</strong></p></div>
-                <div class="dish" dish_id="604942"><img
-                        src="https://spoonacular.com/recipeImages/Feta-Cheese-and-Avocado-Hummus-Dip-604942.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Feta Cheese and Avocado Hummus Dip</strong></p></div>
-                <div class="dish" dish_id="758118"><img
-                        src="https://spoonacular.com/recipeImages/chocolate-thistles-758118.jpg"
-                        class="dish-image">
-                    <p class="dish-title"><strong>Chocolate Thistles</strong></p></div>
-                <div class="dish" dish_id="285682"><img
-                        src="https://spoonacular.com/recipeImages/nuts-n-fruit-munch-mix-285682.jpg" class="dish-image">
-                    <p class="dish-title"><strong>Nuts 'n Fruit Munch Mix</strong></p></div>
             </div>
         </div>
     </div>

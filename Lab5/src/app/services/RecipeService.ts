@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from "rxjs";
 import {Recipe} from "../components/dish/shared/recipe.model";
+import {log} from "util";
 
 @Injectable()
 export class RecipeService {
@@ -23,11 +24,11 @@ export class RecipeService {
 
     getRecipes(type: string, query: string): Observable<any> {
         return this.http.get(`${this.BASE_URL}${this.endpoints.search}&type=${type}&query=${query}`,
-            {headers: this.headers}).map(response => response.json());
+            {headers: this.headers}).map(RecipeService.extractRecipes);
     }
 
     getRecipeDetails(id: number): void {
-        this.http.get(`${this.BASE_URL}${id}/information`, {headers: this.headers}).map(console.log);
+        this.http.get(`${this.BASE_URL}${id}/information`, {headers: this.headers}).map(RecipeService.extractRecipeDetail);
     }
 
     private static handleError(error: any) {
@@ -37,10 +38,11 @@ export class RecipeService {
         return Observable.throw(errMsg);
     }
 
-    /*private static extractRecipeDetails(recipe: any): Recipe {
-        return Recipe(recipe.id, recipe.name, recipe.type, recipe.image, recipe.description, []);
-    }*/
+    private static extractRecipes(response: any): any {
+        return response.json().results.map(recipe => new Recipe(recipe));
+    }
 
-    private static extractRecipe(recipes: any): any {
+    private static extractRecipeDetail(response: any): any {
+        return response.json().map(json => new Recipe(json));
     }
 }

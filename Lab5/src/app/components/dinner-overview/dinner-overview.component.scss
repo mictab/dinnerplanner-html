@@ -1,0 +1,20 @@
+@import "../../scss/shared.scss";
+
+.miniheader {
+  background-color: #FFE599;
+  border: 2px solid black;
+  padding-left: 52px;
+
+  button {
+    background-color: #F6B26B;
+    border: 2px black solid;
+    border-radius: 30px 5px 5px 30px;
+    margin-top: 1em;
+    margin-right: 1em;
+    float: right;
+  }
+}
+
+.foodRow {
+  margin-top: 2em;
+}
