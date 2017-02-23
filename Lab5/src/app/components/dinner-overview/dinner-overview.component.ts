@@ -3,6 +3,7 @@
  */
 
 import {Component} from '@angular/core';
+import {Location} from "@angular/common";
 
 @Component({
     selector: 'dinner-overview',
@@ -10,4 +11,11 @@ import {Component} from '@angular/core';
     styles: [require('./dinner-overview.component.scss')]
 })
 
-export class DinnerOverviewComponent {}
+export class DinnerOverviewComponent {
+
+    constructor(private location: Location) {}
+
+    goBack() {
+        this.location.back();
+    }
+}

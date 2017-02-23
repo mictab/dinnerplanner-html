@@ -10,14 +10,15 @@
                 </button>
                 <select #selectBox class="dish-selection" id="dish-select"
                         (change)="searchForDishes(selectBox.value, textBox.value.toLowerCase())">
-                    <option value="appetizer">Starter</option>
+                    <option selected value="appetizer">Starter</option>
                     <option value="main course">Main Dish</option>
                     <option value="dessert">Dessert</option>
                 </select>
             </div>
             <div id="list-div" class="dish-list-listView">
                 <div class="dish" id={{recipe.id}} *ngFor="let recipe of recipes">
-                    <img src={{recipe.image}} class="dish-image" (click)="searchForDishes()" [routerLink]="['/detail/', recipe.id]">
+                    <img src={{recipe.image}} class="dish-image" [routerLink]="['/detail/', recipe.id]"
+                         (click)="setDishType(selectBox.value)">
                     <p class="dish-title">
                         <strong>{{recipe.name}}</strong>
                     </p>

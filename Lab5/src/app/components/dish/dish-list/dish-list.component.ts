@@ -36,4 +36,8 @@ export class DishListComponent {
         this.model.searchForDishes(type, query);
     }
 
+    setDishType(val: string) {
+        this.model.setFilterType(val);
+    }
+
 }

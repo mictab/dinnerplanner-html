@@ -32,7 +32,6 @@ export class RecipeDetail {
     constructor(data: any) {
         this.id = data.id;
         this.name = data.title;
-        this.type = "appetizer"; // For now
         this.image = data.image;
         this.instructions = data.instructions;
         this.ingredients = this.formatIngredients(data.extendedIngredients, data.servings);

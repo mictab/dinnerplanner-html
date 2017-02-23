@@ -7,7 +7,7 @@
         <span>Cost</span>
     </div>
     <ul class="from-left list-of-dishes">
-            <li *ngFor="let item of menu" class="table-row">
+            <li *ngFor="let item of getMenuItems()" class="table-row">
                 <span>{{item.name}}</span>
                 <span>1.31</span>
             </li>
@@ -15,8 +15,8 @@
     <hr>
     <div class="total-price from-left">
         <p><span>SEK </span><span class="totalPrice">{{totalPrice}}</span></p></div>
-    <button class="btn btn-large btn-primary" type="button" id="confirm-button">Confirm Dinner</button>
-    <button class="btn btn-large btn-primary" type="button" id="delete-starter">Delete Starter</button>
-    <button class="btn btn-large btn-primary" type="button" id="delete-main">Delete Main</button>
-    <button class="btn btn-large btn-primary" type="button" id="delete-dessert">Delete Dessert</button>
+    <button class="btn btn-large btn-primary" type="button" id="confirm-button" [routerLink] = "['/overview']">Confirm Dinner</button>
+    <button class="btn btn-large btn-primary" type="button" id="delete-starter" (click)="deleteDishFor('appetizer')">Delete Starter</button>
+    <button class="btn btn-large btn-primary" type="button" id="delete-main" (click)="deleteDishFor('main course')">Delete Main</button>
+    <button class="btn btn-large btn-primary" type="button" id="delete-dessert" (click)="deleteDishFor('dessert')">Delete Dessert</button>
 </div>

@@ -22,6 +22,9 @@ export class DinnerModel {
     private recipe: RecipeDetail;
     private recipeSubject: Subject<RecipeDetail>;
 
+    // Initial filter type... sigh
+    private filterType = "appetizer";
+
     constructor(public recipeService: RecipeService) {
         this.menu = [];
         this.menuSubject = new Subject<RecipeDetail[]>();
@@ -39,19 +42,34 @@ export class DinnerModel {
         this.recipeService.getRecipeDetails(id).subscribe(dish => this.setSelectedRecipe(dish));
     }
 
+    public setFilterType(val: string) {
+        this.filterType = val;
+    }
+
+    public getFilterType() {
+        return this.filterType;
+    }
+
     /* Adds a recipe to a menu. Filters out already existing recipe of same type */
     public addSelectedDishToMenu() {
+        console.log(this.filterType);
+        this.menu = this.menu.filter(d => d.type != this.filterType);
         this.menu.push(this.recipe);
         this.menuSubject.next(this.menu);
     }
 
-    public removeDishFromMenu(type: string) {
-        this.menu = this.menu.filter(r => r.type != type);
-        this.menuSubject.next(this.menu);
-    }
 
     public getMenu(): Observable<RecipeDetail[]> {
         return this.menuSubject;
+    }
+
+    public getRawMenu() {
+        return this.menu;
+    }
+
+    public deleteDishOfType(val: string) {
+        this.menu = this.menu.filter(d => d.type != val);
+        this.menuSubject.next(this.menu);
     }
 
     /* Get and Set the selected recipe */
@@ -61,6 +79,7 @@ export class DinnerModel {
 
     private setSelectedRecipe(recipe: RecipeDetail) {
         this.recipe = recipe;
+        this.recipe.type = this.getFilterType();
         this.recipeSubject.next(this.recipe);
     }
 
@@ -73,4 +92,5 @@ export class DinnerModel {
         this.dishes = dishes;
         this.dishesSubject.next(this.dishes);
     }
+
 }

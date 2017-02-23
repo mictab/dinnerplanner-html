@@ -12,13 +12,18 @@ import {DinnerModel} from "../../models/dinner.model";
 })
 
 export class CheckoutComponent {
-    private menu: RecipeDetail[];
     private totalPrice = 10;
     private numberOfGuests = 1;
 
     constructor(public dinnerModel: DinnerModel) {
-        this.dinnerModel.getMenu().subscribe(menu => {
-            this.menu = menu
-        })
+        this.dinnerModel.getMenu().subscribe(() => this.getMenuItems());
+    }
+
+    getMenuItems(): RecipeDetail[] {
+        return this.dinnerModel.getRawMenu();
+    }
+
+    deleteDishFor(type: string) {
+        this.dinnerModel.deleteDishOfType(type);
     }
 }
