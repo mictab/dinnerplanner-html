@@ -17,7 +17,7 @@
                     <table class="from-left list-of-dishes">
                         <tbody>
                         <tr *ngFor="let ingredient of recipe?.ingredients">
-                            <td>{{ingredient.quantity}}</td>
+                            <td>{{ingredient.quantity}} {{ingredient.unit}}</td>
                             <td>{{ingredient.name}}</td>
                             <td>SEK {{ingredient.price}}</td>
                         </tr>
@@ -25,7 +25,7 @@
                     </table>
                     <hr>
                     <div class="confirm-row">
-                        <button class="btn btn-ms btn-primary confirm-btn">Confirm Dish</button>
+                        <button class="btn btn-ms btn-primary confirm-btn" (click)="addSelectedDishToMenu()">Confirm Dish</button>
                         <p>SEK {{recipePrice}}</p></div>
                 </div>
             </div>

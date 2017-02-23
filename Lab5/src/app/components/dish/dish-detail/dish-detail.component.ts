@@ -21,15 +21,26 @@ export class DishDetailComponent {
 
     ngOnInit() {
         let id = +this.route.snapshot.params['id'];
-        this.dinnerModel.getRecipe(id).subscribe(dish => this.onDishReceived(dish));
-        this.dinnerModel.getSelectedDishPrice().subscribe(price => this.recipePrice = price);
+        this.dinnerModel
+            .getSelectedRecipe()
+            .subscribe(dish => this.onDishReceived(dish));
+        this.dinnerModel.getRecipe(id);
     }
 
     private onDishReceived(recipe: RecipeDetail) {
         this.recipe = recipe;
+        this.calculateDishPrice();
     }
 
     backClicked() {
         this._location.back();
+    }
+
+    addSelectedDishToMenu() {
+        this.dinnerModel.addSelectedDishToMenu();
+    }
+
+    private calculateDishPrice() {
+        this.recipePrice = this.recipe.ingredients.reduce((i1, i2) => i1 + i2.price, 0)
     }
 }

@@ -14,7 +14,7 @@ import {DinnerModel} from "../../models/dinner.model";
 export class CheckoutComponent {
     private menu: RecipeDetail[];
     private totalPrice = 10;
-    private numberOfGuests = 3;
+    private numberOfGuests = 1;
 
     constructor(private dinnerModel: DinnerModel) {
 
@@ -25,5 +25,4 @@ export class CheckoutComponent {
             this.menu = menu
         })
     }
-
 }
