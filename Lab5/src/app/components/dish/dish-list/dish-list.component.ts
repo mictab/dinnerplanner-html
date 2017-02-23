@@ -1,11 +1,9 @@
 /**
  * Created by michel on 2/21/17.
  */
-
-import {Component, Input} from '@angular/core';
+import {Component} from "@angular/core";
 import {Recipe} from "../shared/recipe.model";
 import {DinnerModel} from "../../../models/dinner.model";
-import {Observable} from "rxjs";
 
 @Component({
     selector: 'dish-list',
@@ -15,9 +13,19 @@ import {Observable} from "rxjs";
 
 export class DishListComponent {
     private recipes: Recipe[];
+    private sub: any = null;
 
     constructor(private model: DinnerModel) {
-        this.model.searchForDishes("starter", "").subscribe(recipes => this.onDishesReceived(recipes));
+        this.model.searchForDishes("appetizer", "");
+    }
+
+    ngOnInit() {
+        // Subscribe to the available dishes
+        this.sub = this.model.getDishes().subscribe(dishes => this.onDishesReceived(dishes));
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 
     private onDishesReceived(dishes: Recipe[]) {
@@ -25,6 +33,7 @@ export class DishListComponent {
     }
 
     searchForDishes(type: string, query: string) {
-        this.model.searchForDishes(type, query).subscribe(recipes => this.onDishesReceived(recipes));
+        this.model.searchForDishes(type, query);
     }
+
 }

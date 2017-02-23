@@ -5,7 +5,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from "rxjs";
-import {Recipe} from "../components/dish/shared/recipe.model";
+import {Recipe, RecipeDetail} from "../components/dish/shared/recipe.model";
 import {log} from "util";
 
 @Injectable()
@@ -27,8 +27,8 @@ export class RecipeService {
             {headers: this.headers}).map(RecipeService.extractRecipes);
     }
 
-    getRecipeDetails(id: number): void {
-        this.http.get(`${this.BASE_URL}${id}/information`, {headers: this.headers}).map(RecipeService.extractRecipeDetail);
+    getRecipeDetails(id: number): Observable<any> {
+        return this.http.get(`${this.BASE_URL}${id}/information`, {headers: this.headers}).map(RecipeService.extractRecipeDetail);
     }
 
     private static handleError(error: any) {
@@ -43,6 +43,6 @@ export class RecipeService {
     }
 
     private static extractRecipeDetail(response: any): any {
-        return response.json().map(json => new Recipe(json));
+        return new RecipeDetail(response.json());
     }
 }

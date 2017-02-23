@@ -4,11 +4,11 @@
         <div class="dish-detail-view">
             <div class="dish-info-and-ingredients">
                 <div class="dish-info">
-                    <div class="dish-info-box"><h3 class="lasagne-title">Roasted vegetable &amp; feta tostada</h3><img
-                            class="dish-image"
-                            src="https://spoonacular.com/recipeImages/Roasted-vegetable---feta-tostada-222482.jpg">
-                        <p class="lasagne-text">Roasted vegetable &amp; feta tostada</p>
-                        <button class="btn btn-ms btn-primary back-to-dish" id="back-button">Back to Select Dish
+                    <div class="dish-info-box">
+                        <h3 class="lasagne-title">{{recipe?.name}}</h3>
+                            <img class="dish-image" src={{recipe?.image}}>
+                        <p class="lasagne-text">{{recipe?.name}}</p>
+                        <button class="btn btn-ms btn-primary back-to-dish" (click)="backClicked()">Back to Select Dish
                         </button>
                     </div>
                 </div>
@@ -16,61 +16,21 @@
                     <hr>
                     <table class="from-left list-of-dishes">
                         <tbody>
-                        <tr>
-                            <td>0.5</td>
-                            <td>avocado</td>
-                            <td>SEK 0.5</td>
-                        </tr>
-                        <tr>
-                            <td>37.5 g</td>
-                            <td>cherry tomatoes</td>
-                            <td>SEK 37.5</td>
-                        </tr>
-                        <tr>
-                            <td>1 tbsp</td>
-                            <td>feta cheese</td>
-                            <td>SEK 1</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>flour tortillas</td>
-                            <td>SEK 1</td>
-                        </tr>
-                        <tr>
-                            <td>162.5 g</td>
-                            <td>mixed vegetables</td>
-                            <td>SEK 162.5</td>
-                        </tr>
-                        <tr>
-                            <td>0.5</td>
-                            <td>juice of lime</td>
-                            <td>SEK 0.5</td>
-                        </tr>
-                        <tr>
-                            <td>0.5 tsp</td>
-                            <td>seasoning mix</td>
-                            <td>SEK 0.5</td>
-                        </tr>
-                        <tr>
-                            <td>1 handfuls</td>
-                            <td>rocket</td>
-                            <td>SEK 1</td>
+                        <tr *ngFor="let ingredient of recipe?.ingredients">
+                            <td>{{ingredient.quantity}}</td>
+                            <td>{{ingredient.name}}</td>
+                            <td>SEK {{ingredient.price}}</td>
                         </tr>
                         </tbody>
                     </table>
                     <hr>
                     <div class="confirm-row">
                         <button class="btn btn-ms btn-primary confirm-btn">Confirm Dish</button>
-                        <p>SEK 204.5</p></div>
+                        <p>SEK {{recipePrice}}</p></div>
                 </div>
             </div>
             <div class="dish-preparations"><h2>PREPARATION</h2>
-                <p class="preparation-text" style="width: 900px">Heat oven to 200C/180C fan/gas 6.In a roasting tin, season the
-                    frozenvegetables and toss with the Mexicanseasoning, then roast in the oven for15 mins, until hot.
-                    Meanwhile, mix theavocado, lime juice and tomatoes withsome seasoning, then set aside.Put the
-                    tortillas on a baking sheet andcook above the vegetables for the final5 mins of cooking time until
-                    crisp.Transfer the crispy tortillas to plates,scatter with rocket and top with theroasted
-                    vegetables. Add some of theavocado salsa and sprinkle over the feta.</p></div>
+                <p class="preparation-text" style="width: 900px">{{recipe?.instructions}}</p></div>
         </div>
     </div>
 </div>

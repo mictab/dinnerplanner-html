@@ -17,7 +17,7 @@
             </div>
             <div id="list-div" class="dish-list-listView">
                 <div class="dish" id={{recipe.id}} *ngFor="let recipe of recipes">
-                    <img src={{recipe.image}} class="dish-image" (click)="searchForDishes()" [routerLink]="['/detail']">
+                    <img src={{recipe.image}} class="dish-image" (click)="searchForDishes()" [routerLink]="['/detail/', recipe.id]">
                     <p class="dish-title">
                         <strong>{{recipe.name}}</strong>
                     </p>

@@ -2,7 +2,7 @@
  * Created by michel on 2/21/17.
  */
 import {Component} from '@angular/core';
-import {Recipe} from "../dish/shared/recipe.model";
+import {RecipeDetail} from "../dish/shared/recipe.model";
 import {DinnerModel} from "../../models/dinner.model";
 
 @Component({
@@ -12,9 +12,9 @@ import {DinnerModel} from "../../models/dinner.model";
 })
 
 export class CheckoutComponent {
-    private menu: Recipe[];
+    private menu: RecipeDetail[];
     private totalPrice = 10;
-    private numberOfGuests = 33;
+    private numberOfGuests = 3;
 
     constructor(private dinnerModel: DinnerModel) {
 

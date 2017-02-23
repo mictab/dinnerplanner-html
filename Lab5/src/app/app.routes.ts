@@ -9,7 +9,7 @@ export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'list', component: DishListComponent },
-  { path: 'detail', component: DishDetailComponent },
+  { path: 'detail/:id', component: DishDetailComponent },
   { path: 'instructions', component: InstructionsComponent },
   { path: 'overview', component: DinnerOverviewComponent },
   { path : '**', redirectTo: 'home' }
