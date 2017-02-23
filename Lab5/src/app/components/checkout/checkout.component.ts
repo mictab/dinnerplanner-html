@@ -16,11 +16,7 @@ export class CheckoutComponent {
     private totalPrice = 10;
     private numberOfGuests = 1;
 
-    constructor(private dinnerModel: DinnerModel) {
-
-    }
-
-    ngOnInit() {
+    constructor(public dinnerModel: DinnerModel) {
         this.dinnerModel.getMenu().subscribe(menu => {
             this.menu = menu
         })

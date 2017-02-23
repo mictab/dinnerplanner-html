@@ -11,7 +11,7 @@ import {RecipeService} from "../services/RecipeService";
 @Injectable()
 export class DinnerModel {
     // The menu in the cart
-    private menu: RecipeDetail[] = [];
+    private menu: RecipeDetail[];
     private menuSubject: Subject<RecipeDetail[]>;
 
     // The recipes listed in the search view
@@ -22,7 +22,8 @@ export class DinnerModel {
     private recipe: RecipeDetail;
     private recipeSubject: Subject<RecipeDetail>;
 
-    constructor(private recipeService: RecipeService) {
+    constructor(public recipeService: RecipeService) {
+        this.menu = [];
         this.menuSubject = new Subject<RecipeDetail[]>();
         this.dishesSubject = new Subject<Recipe[]>();
         this.recipeSubject = new Subject<RecipeDetail>();
@@ -40,9 +41,7 @@ export class DinnerModel {
 
     /* Adds a recipe to a menu. Filters out already existing recipe of same type */
     public addSelectedDishToMenu() {
-        const temp = this.menu.filter(r => r.type != this.recipe.type);
-        temp.push(this.recipe);
-        this.menu = temp;
+        this.menu.push(this.recipe);
         this.menuSubject.next(this.menu);
     }
 

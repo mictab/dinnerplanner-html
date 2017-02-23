@@ -15,7 +15,7 @@ export class DishListComponent {
     private recipes: Recipe[];
     private sub: any = null;
 
-    constructor(private model: DinnerModel) {
+    constructor(public model: DinnerModel) {
         this.model.searchForDishes("appetizer", "");
     }
 
