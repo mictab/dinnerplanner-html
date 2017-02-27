@@ -1,14 +1,7 @@
 $yellowish-color: rgba(255, 230, 0, 0.3);
 $home-box-color: rgba(255, 255, 255, 0.6);
 
-.btn, .btn-primary, .btn-lg {
-  background-color: orange;
-  color: black;
-  border-radius: 2px;
-  box-shadow: 5px 5px 2px black;
-}
-
-.btn:hover, .btn-primary:hover, .btn-lg {
+.btn, .btn-primary, .btn-lg, .btn:hover, .btn-primary:hover, .btn-lg {
   background-color: orange;
   color: black;
   border-radius: 2px;

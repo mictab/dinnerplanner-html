@@ -37,7 +37,6 @@ export class RecipeService {
 
     private static handleError(error: any) {
         return Observable.throw(error.message);
-
     }
 
     private extractRecipes(response: any): any {
