@@ -25,11 +25,15 @@ export class DinnerModel {
     // Initial filter type... sigh
     private filterType = "appetizer";
 
+    private numberOfPeople: number = 1;
+    private numberOfPeopleSubject: Subject<number>;
+
     constructor(public recipeService: RecipeService) {
         this.menu = [];
         this.menuSubject = new Subject<RecipeDetail[]>();
         this.dishesSubject = new Subject<Recipe[]>();
         this.recipeSubject = new Subject<RecipeDetail>();
+        this.numberOfPeopleSubject = new Subject<number>();
     }
 
     /* Gets the recipes for a specific type and query */
@@ -93,4 +97,15 @@ export class DinnerModel {
         this.dishesSubject.next(this.dishes);
     }
 
+    public setNumberOfPeople(val: number){
+        this.numberOfPeople = val;
+        this.numberOfPeopleSubject.next(this.numberOfPeople);
+    }
+    public getNumberOfPeople(): Observable<number>{
+        return this.numberOfPeopleSubject;
+    }
+
+    public getRawNumPeople() {
+        return this.numberOfPeople;
+    }
 }

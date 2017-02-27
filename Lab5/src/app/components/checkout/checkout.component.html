@@ -1,7 +1,7 @@
 <div class="cart">
     <h4 class="from-left">My Dinner</h4>
     <label class="from-left" for="people">People</label>
-    <input type="number" name="people" id="people" value={{numberOfGuests}} min="1">
+    <input type="number" name="people" id="people" value={{getNumPeople()}} min="1" (change)="setNumberOfPeople($event)">
     <div class="table-head">
         <span>Dish Name</span>
         <span>Cost</span>

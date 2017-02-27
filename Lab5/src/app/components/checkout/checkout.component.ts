@@ -13,10 +13,10 @@ import {DinnerModel} from "../../models/dinner.model";
 
 export class CheckoutComponent {
     private totalPrice = 10;
-    private numberOfGuests = 1;
 
     constructor(public dinnerModel: DinnerModel) {
         this.dinnerModel.getMenu().subscribe(() => this.getMenuItems());
+        this.dinnerModel.getNumberOfPeople().subscribe(() => this.getNumPeople());
     }
 
     getMenuItems(): RecipeDetail[] {
@@ -25,5 +25,13 @@ export class CheckoutComponent {
 
     deleteDishFor(type: string) {
         this.dinnerModel.deleteDishOfType(type);
+    }
+
+    setNumberOfPeople(event: any){
+        this.dinnerModel.setNumberOfPeople(event.target.value);
+    }
+
+    getNumPeople(): number {
+        return this.dinnerModel.getRawNumPeople();
     }
 }

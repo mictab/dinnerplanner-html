@@ -4,6 +4,8 @@
 
 import {Component} from '@angular/core';
 import {Location} from "@angular/common";
+import {RecipeDetail} from "../dish/shared/recipe.model";
+import {DinnerModel} from "../../models/dinner.model";
 
 @Component({
     selector: 'dinner-overview',
@@ -12,10 +14,21 @@ import {Location} from "@angular/common";
 })
 
 export class DinnerOverviewComponent {
-
-    constructor(private location: Location) {}
+    constructor(private location: Location, private model: DinnerModel) {
+        this.model.getMenu().subscribe(()=>{
+            this.getMenuItems();
+        });
+        this.model.getNumberOfPeople().subscribe(() => this.getNumPeople());
+    }
 
     goBack() {
         this.location.back();
+    }
+    getMenuItems(): RecipeDetail[] {
+        return this.model.getRawMenu();
+    }
+
+    getNumPeople(): number {
+        return this.model.getRawNumPeople();
     }
 }
