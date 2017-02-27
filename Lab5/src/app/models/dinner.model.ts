@@ -31,6 +31,8 @@ export class DinnerModel {
     private totalMenuPriceSubject;
     private totalMenuPrice = 0;
 
+    private isLoadingSubject: Subject<boolean>;
+
     constructor(public recipeService: RecipeService) {
         this.menu = [];
         this.menuSubject = new Subject<RecipeDetail[]>();
@@ -38,16 +40,29 @@ export class DinnerModel {
         this.recipeSubject = new Subject<RecipeDetail>();
         this.numberOfPeopleSubject = new Subject<number>();
         this.totalMenuPriceSubject = new Subject<number>();
+        this.isLoadingSubject = new Subject<boolean>();
     }
 
     /* Gets the recipes for a specific type and query */
     public searchForDishes(type, query) {
-        this.recipeService.getRecipes(type, query).subscribe(dishes => this.setDishes(dishes));
+        this.setLoading(true);
+        this.recipeService.getRecipes(type, query).subscribe(dishes => {
+            if(dishes){
+                this.setDishes(dishes);
+                this.setLoading(false);
+            }
+        });
     }
 
     /* Gets the detail for a recipe with a provided id */
     public getRecipe(id: number) {
-        this.recipeService.getRecipeDetails(id).subscribe(dish => this.setSelectedRecipe(dish));
+        this.setLoading(true);
+        this.recipeService.getRecipeDetails(id).subscribe(dish => {
+            if(dish){
+                this.setSelectedRecipe(dish);
+                this.setLoading(false);
+            }
+        });
     }
 
     public setFilterType(val: string) {
@@ -130,5 +145,12 @@ export class DinnerModel {
 
     public getTotalMenuPrice(): Observable<number> {
         return this.totalMenuPriceSubject;
+    }
+
+    public isLoading(): Observable<boolean> {
+        return this.isLoadingSubject;
+    }
+    public setLoading(loading){
+        this.isLoadingSubject.next(loading);
     }
 }

@@ -14,10 +14,12 @@ import {CheckoutComponent} from "./components/checkout/checkout.component";
 import {DishDetailComponent} from "./components/dish/dish-detail/dish-detail.component";
 import {InstructionsComponent} from "./components/instructions/instructions.component";
 import {DinnerOverviewComponent} from "./components/dinner-overview/dinner-overview.component";
+import {LoadingComponent} from "./components/loading/loading.component";
 
 @NgModule({
     declarations: [
         AppComponent,
+        LoadingComponent,
         HeaderComponent,
         HomeComponent,
         CheckoutComponent,
