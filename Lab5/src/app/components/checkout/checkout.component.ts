@@ -13,30 +13,30 @@ import {DinnerModel} from "../../models/dinner.model";
 
 export class CheckoutComponent {
 
-    constructor(public dinnerModel: DinnerModel) {
-        this.dinnerModel.getMenu().subscribe(() => this.getMenuItems());
-        this.dinnerModel.getNumberOfPeople().subscribe(() => this.getNumPeople());
-        this.dinnerModel.getTotalMenuPrice().subscribe(() => this.getMenuPrice());
+    constructor(public model: DinnerModel) {
+        this.model.getMenu().subscribe(() => this.getMenuItems());
+        this.model.getNumberOfPeople().subscribe(() => this.getNumPeople());
+        this.model.getTotalMenuPrice().subscribe(() => this.getMenuPrice());
     }
 
     getMenuItems(): RecipeDetail[] {
-        return this.dinnerModel.getRawMenu();
+        return this.model.getRawMenu();
     }
 
     deleteDishFor(type: string) {
-        this.dinnerModel.deleteDishOfType(type);
+        this.model.deleteDishOfType(type);
     }
 
     setNumberOfPeople(event: any) {
-        this.dinnerModel.setNumberOfPeople(event.target.value);
+        this.model.setNumberOfPeople(event.target.value);
     }
 
     getNumPeople(): number {
-        return this.dinnerModel.getRawNumPeople();
+        return this.model.getRawNumPeople();
     }
 
     getMenuPrice(): number {
-        return this.dinnerModel.getRawTotalMenuPrice();
+        return this.model.getRawTotalMenuPrice();
     }
 
 }

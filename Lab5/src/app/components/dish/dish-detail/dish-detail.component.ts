@@ -17,15 +17,15 @@ export class DishDetailComponent {
     private recipe: RecipeDetail;
     private recipePrice: number;
 
-    constructor(public dinnerModel: DinnerModel, private route: ActivatedRoute, private _location: Location) {
+    constructor(public model: DinnerModel, private route: ActivatedRoute, private _location: Location) {
     }
 
     ngOnInit() {
         let id = +this.route.snapshot.params['id'];
-        this.dinnerModel
+        this.model
             .getSelectedRecipe()
             .subscribe(dish => this.onDishReceived(dish));
-        this.dinnerModel.getRecipe(id);
+        this.model.getRecipe(id);
     }
 
     private onDishReceived(recipe: RecipeDetail) {
@@ -38,7 +38,7 @@ export class DishDetailComponent {
     }
 
     addSelectedDishToMenu() {
-        this.dinnerModel.addSelectedDishToMenu();
+        this.model.addSelectedDishToMenu();
     }
 
     private calculateDishPrice() {
@@ -46,6 +46,6 @@ export class DishDetailComponent {
     }
 
     getNumPeople() {
-        return this.dinnerModel.getRawNumPeople();
+        return this.model.getRawNumPeople();
     }
 }
