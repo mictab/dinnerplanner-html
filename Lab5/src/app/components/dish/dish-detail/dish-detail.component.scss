@@ -1,17 +1,14 @@
 @import "../../../scss/shared.scss";
 
 .dish-detail-view {
-  /*height: calc(100vh - 100px);*/
   flex: 1;
   width: calc(100vw - 200px);
-  /*width: 300px;*/
   border: 3px solid black;
 }
 
 .dish-info-and-ingredients {
   display: flex;
   flex-direction: row;
-  /*height: 400px;*/
 }
 
 .dish-image {

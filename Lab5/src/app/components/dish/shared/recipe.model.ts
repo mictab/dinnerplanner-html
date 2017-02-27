@@ -45,7 +45,7 @@ export class RecipeDetail {
     }
 
     public getPriceForDish(num: number): number {
-        return Math.round(this.ingredients.reduce((curr, item) => curr + item.price, 0) * num * 100)/100;
+        return Math.round(this.ingredients.reduce((curr, item) => curr + item.price, 0) * num * 100) / 100;
     }
 }
 
@@ -57,8 +57,8 @@ class Ingredient {
 
     constructor(data: any, servings: number) {
         this.name = data.name;
-        this.quantity = Math.round(data.amount * 100/servings) / 100;
+        this.quantity = Math.round(data.amount * 100 / servings) / 100;
         this.unit = data.unit;
-        this.price = Math.round(data.amount * 100/servings) / 100;
+        this.price = Math.round(data.amount * 100 / servings) / 100;
     }
 }

@@ -17,7 +17,8 @@ export class DishDetailComponent {
     private recipe: RecipeDetail;
     private recipePrice: number;
 
-    constructor(public dinnerModel: DinnerModel, private route: ActivatedRoute, private _location: Location) { }
+    constructor(public dinnerModel: DinnerModel, private route: ActivatedRoute, private _location: Location) {
+    }
 
     ngOnInit() {
         let id = +this.route.snapshot.params['id'];

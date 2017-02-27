@@ -6,7 +6,7 @@
                 <div class="dish-info">
                     <div class="dish-info-box">
                         <h3 class="lasagne-title">{{recipe?.name}}</h3>
-                            <img class="dish-image" src={{recipe?.image}}>
+                        <img class="dish-image" src={{recipe?.image}}>
                         <p class="lasagne-text">{{recipe?.name}}</p>
                         <button class="btn btn-ms btn-primary back-to-dish" (click)="backClicked()">Back to Select Dish
                         </button>
@@ -25,7 +25,9 @@
                     </table>
                     <hr>
                     <div class="confirm-row">
-                        <button class="btn btn-ms btn-primary confirm-btn" (click)="addSelectedDishToMenu()">Confirm Dish</button>
+                        <button class="btn btn-ms btn-primary confirm-btn" (click)="addSelectedDishToMenu()">Confirm
+                            Dish
+                        </button>
                         <p>SEK {{recipePrice * getNumPeople()}}</p></div>
                 </div>
             </div>

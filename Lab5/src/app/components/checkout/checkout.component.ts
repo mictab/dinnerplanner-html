@@ -27,7 +27,7 @@ export class CheckoutComponent {
         this.dinnerModel.deleteDishOfType(type);
     }
 
-    setNumberOfPeople(event: any){
+    setNumberOfPeople(event: any) {
         this.dinnerModel.setNumberOfPeople(event.target.value);
     }
 

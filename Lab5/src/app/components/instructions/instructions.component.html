@@ -1,8 +1,8 @@
 <div class="row miniheader">
-<div class="col-md-8"><h3>My Dinner: {{getNumPeople()}} people</h3></div>
-<div class="col-md-4">
-    <button id="final-back-btn" (click)="goBack()">Go back and edit dinner</button>
-</div>
+    <div class="col-md-8"><h3>My Dinner: {{getNumPeople()}} people</h3></div>
+    <div class="col-md-4">
+        <button id="final-back-btn" (click)="goBack()">Go back and edit dinner</button>
+    </div>
 </div>
 <div class="container">
     <div class="row foodRow" *ngFor="let dish of getMenuItems()">
