@@ -32,6 +32,7 @@ export class DinnerModel {
     private totalMenuPrice = 0;
 
     private isLoadingSubject: Subject<boolean>;
+    private apiStatusSubject: Subject<boolean>;
 
     constructor(public recipeService: RecipeService) {
         this.menu = [];
@@ -41,16 +42,18 @@ export class DinnerModel {
         this.numberOfPeopleSubject = new Subject<number>();
         this.totalMenuPriceSubject = new Subject<number>();
         this.isLoadingSubject = new Subject<boolean>();
+        this.apiStatusSubject = new Subject<boolean>();
     }
 
     /* Gets the recipes for a specific type and query */
     public searchForDishes(type, query) {
         this.setLoading(true);
         this.recipeService.getRecipes(type, query).subscribe(dishes => {
-            if(dishes){
-                this.setDishes(dishes);
-                this.setLoading(false);
-            }
+            this.setDishes(dishes);
+            this.setLoading(false);
+            this.setApiSuccess(true);
+        }, (err) => {
+            this.setApiSuccess(false)
         });
     }
 
@@ -58,10 +61,11 @@ export class DinnerModel {
     public getRecipe(id: number) {
         this.setLoading(true);
         this.recipeService.getRecipeDetails(id).subscribe(dish => {
-            if(dish){
-                this.setSelectedRecipe(dish);
-                this.setLoading(false);
-            }
+            this.setSelectedRecipe(dish);
+            this.setLoading(false);
+            this.setApiSuccess(true);
+        }, (err) => {
+            this.setApiSuccess(false);
         });
     }
 
@@ -118,12 +122,13 @@ export class DinnerModel {
         this.dishesSubject.next(this.dishes);
     }
 
-    public setNumberOfPeople(val: number){
+    public setNumberOfPeople(val: number) {
         this.numberOfPeople = val;
         this.numberOfPeopleSubject.next(this.numberOfPeople);
         this.calculateNewPrice();
     }
-    public getNumberOfPeople(): Observable<number>{
+
+    public getNumberOfPeople(): Observable<number> {
         return this.numberOfPeopleSubject;
     }
 
@@ -135,7 +140,6 @@ export class DinnerModel {
         let sum = 0;
         this.menu.forEach((item) => sum += item.getPriceForDish(this.numberOfPeople));
         this.totalMenuPrice = sum;
-        console.log(sum);
         this.totalMenuPriceSubject.next(this.totalMenuPrice);
     }
 
@@ -150,7 +154,16 @@ export class DinnerModel {
     public isLoading(): Observable<boolean> {
         return this.isLoadingSubject;
     }
-    public setLoading(loading){
+
+    public setLoading(loading) {
         this.isLoadingSubject.next(loading);
+    }
+
+    public setApiSuccess(val: boolean) {
+        this.apiStatusSubject.next(val);
+    }
+
+    public apiStatus(): Observable<boolean> {
+        return this.apiStatusSubject;
     }
 }

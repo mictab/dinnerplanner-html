@@ -23,19 +23,21 @@ export class RecipeService {
     }
 
     getRecipes(type: string, query: string): Observable<any> {
-        return this.http.get(`${this.BASE_URL}${this.endpoints.search}&type=${type}&query=${query}`,
-            {headers: this.headers}).map(this.extractRecipes);
+        return this
+            .http
+            .get(`${this.BASE_URL}${this.endpoints.search}&type=${type}&query=${query}`,
+            {headers: this.headers})
+            .map(this.extractRecipes)
+            .catch(this.handleError);
     }
 
     getRecipeDetails(id: number): Observable<any> {
         return this.http.get(`${this.BASE_URL}${id}/information`, {headers: this.headers}).map(this.extractRecipeDetail);
     }
 
-    private static handleError(error: any) {
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
+    private handleError(error: any) {
+        return Observable.throw(error.message);
+
     }
 
     private extractRecipes(response: any): any {

@@ -11,9 +11,11 @@ import {DinnerModel} from "../../models/dinner.model";
 })
 export class LoadingComponent{
     private isLoading = false;
+    private success = true;
+
     constructor(private model: DinnerModel){
-        this.model.isLoading().subscribe((b)=>{
-            this.isLoading = b;
-        });
+        this.model.isLoading().subscribe(b => this.isLoading = b);
+
+        this.model.apiStatus().subscribe(b => this.success = b);
     }
 }

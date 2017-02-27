@@ -1,4 +1,6 @@
-<div id="loadingBar" *ngIf="isLoading">
-    <span>Loading...</span>
-    <div class="loading"></div>
+<div class="loadingBar" *ngIf="isLoading">
+    <span *ngIf="success">Loading...</span>
+    <span *ngIf="!success">Failed!</span>
+    <div class="loading" *ngIf="success"></div>
 </div>
+

@@ -1,4 +1,4 @@
-#loadingBar{
+.loadingBar{
   height: 1.8em;
   width: 100vw;
   font-size: 2em;
@@ -7,6 +7,17 @@
   top: 0;
   left: 0;
   z-index: 100000000000;
+
+  .loading {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: red;
+    animation-name: example;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    display: inline-block;
+  }
 }
 
 @keyframes example {
@@ -15,15 +26,4 @@
   50%  {transform: rotate(180deg);}
   75%  {transform: rotate(270deg);}
   100% {transform: rotate(360deg);}
-}
-
-#loadingBar .loading{
-  width: 20px;
-  height: 20px;
-  border: 1px solid black;
-  background-color: red;
-  animation-name: example;
-  animation-iteration-count: infinite;
-  animation-duration: 2s;
-  display: inline-block;
 }
