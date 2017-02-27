@@ -1,17 +1,19 @@
 <div class="row miniheader">
     <div class="col-md-8"><h3>My Dinner: {{getNumPeople()}} people</h3></div>
     <div class="col-md-4">
-        <button id="final-back-btn" (click)="goBack()">Go back and edit dinner</button>
+        <button id="edit-btn" (click)="goBack()">Go back and edit dinner</button>
     </div>
 </div>
-<div class="container">
-    <div class="row foodRow" *ngFor="let dish of getMenuItems()">
-        <div class="col-md-2"><img src={{dish.image}} width="140"
-                                   height="140"></div>
-        <div class="col-md-4"><h4>{{dish.name}}</h4>
-            <p>{{dish.instructions}}</p></div>
-        <div class="col-md-6"><h5>PREPARATION</h5>
-            <p>{{dish.instructions}}</p></div>
+<div class="separator"></div>
+<span id="printButton"><button type="button" [routerLink]="['/instructions']">Print Full Recipe</button></span>
+<div id="selectedMenu">
+    <div class="imgBox" *ngFor="let dish of getMenuItems()">
+        <div><img src={{dish.image}} width="140" height="140">
+            <div><h4>{{dish.name}}</h4></div>
+        </div>
+        <div class="price">{{dish.price * getNumPeople()}} SEK</div>
     </div>
-    <span id="printButton"><button type="button">Print Full Recipe</button></span>
+    <div class="menuResult"><p>Total:</p>
+        <div class="price">{{getMenuPrice() * getNumPeople()}} SEK</div>
+    </div>
 </div>

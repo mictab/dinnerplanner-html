@@ -43,6 +43,10 @@ export class RecipeDetail {
         if (isUndefined(ingredients)) return [];
         return ingredients.map(ingredient => new Ingredient(ingredient, servings));
     }
+
+    public getPriceForDish(num: number): number {
+        return Math.round(this.ingredients.reduce((curr, item) => curr + item.price, 0) * num * 100)/100;
+    }
 }
 
 class Ingredient {

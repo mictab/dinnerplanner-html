@@ -9,12 +9,12 @@
     <ul class="from-left list-of-dishes">
             <li *ngFor="let item of getMenuItems()" class="table-row">
                 <span>{{item.name}}</span>
-                <span>1.31</span>
+                <span>{{item.getPriceForDish(getNumPeople())}}</span>
             </li>
     </ul>
     <hr>
     <div class="total-price from-left">
-        <p><span>SEK </span><span class="totalPrice">{{totalPrice}}</span></p></div>
+        <p><span>SEK </span><span class="totalPrice">{{getMenuPrice()}}</span></p></div>
     <button class="btn btn-large btn-primary" type="button" id="confirm-button" [routerLink] = "['/overview']">Confirm Dinner</button>
     <button class="btn btn-large btn-primary" type="button" id="delete-starter" (click)="deleteDishFor('appetizer')">Delete Starter</button>
     <button class="btn btn-large btn-primary" type="button" id="delete-main" (click)="deleteDishFor('main course')">Delete Main</button>

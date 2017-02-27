@@ -15,6 +15,10 @@
   }
 }
 
+.foodRow {
+  margin-top: 2em;
+}
+
 #printButton {
   display: flex;
   justify-content: center;
@@ -27,31 +31,4 @@
     font-size: 1.25em;
     border-color: black;
   }
-}
-
-#selectedMenu {
-  display: flex;
-  justify-content: center;
-  margin: 2em 15em 1em 15em;
-}
-
-.imgBox {
-  display: inline-block;
-  margin-right: 5em;
-}
-
-.price {
-  color: crimson;
-}
-
-.menuResult {
-  border-left: 2px black solid;
-  padding-left: 1em;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.separator {
-  border-bottom: 2px solid black;
 }

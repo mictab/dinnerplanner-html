@@ -28,12 +28,16 @@ export class DinnerModel {
     private numberOfPeople: number = 1;
     private numberOfPeopleSubject: Subject<number>;
 
+    private totalMenuPriceSubject;
+    private totalMenuPrice = 0;
+
     constructor(public recipeService: RecipeService) {
         this.menu = [];
         this.menuSubject = new Subject<RecipeDetail[]>();
         this.dishesSubject = new Subject<Recipe[]>();
         this.recipeSubject = new Subject<RecipeDetail>();
         this.numberOfPeopleSubject = new Subject<number>();
+        this.totalMenuPriceSubject = new Subject<number>();
     }
 
     /* Gets the recipes for a specific type and query */
@@ -60,6 +64,7 @@ export class DinnerModel {
         this.menu = this.menu.filter(d => d.type != this.filterType);
         this.menu.push(this.recipe);
         this.menuSubject.next(this.menu);
+        this.calculateNewPrice();
     }
 
 
@@ -74,6 +79,7 @@ export class DinnerModel {
     public deleteDishOfType(val: string) {
         this.menu = this.menu.filter(d => d.type != val);
         this.menuSubject.next(this.menu);
+        this.calculateNewPrice();
     }
 
     /* Get and Set the selected recipe */
@@ -100,6 +106,7 @@ export class DinnerModel {
     public setNumberOfPeople(val: number){
         this.numberOfPeople = val;
         this.numberOfPeopleSubject.next(this.numberOfPeople);
+        this.calculateNewPrice();
     }
     public getNumberOfPeople(): Observable<number>{
         return this.numberOfPeopleSubject;
@@ -107,5 +114,21 @@ export class DinnerModel {
 
     public getRawNumPeople() {
         return this.numberOfPeople;
+    }
+
+    private calculateNewPrice() {
+        let sum = 0;
+        this.menu.forEach((item) => sum += item.getPriceForDish(this.numberOfPeople));
+        this.totalMenuPrice = sum;
+        console.log(sum);
+        this.totalMenuPriceSubject.next(this.totalMenuPrice);
+    }
+
+    public getRawTotalMenuPrice() {
+        return this.totalMenuPrice;
+    }
+
+    public getTotalMenuPrice(): Observable<number> {
+        return this.totalMenuPriceSubject;
     }
 }

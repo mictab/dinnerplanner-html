@@ -43,4 +43,8 @@ export class DishDetailComponent {
     private calculateDishPrice() {
         this.recipePrice = this.recipe.ingredients.reduce((i1, i2) => i1 + i2.price, 0)
     }
+
+    getNumPeople() {
+        return this.dinnerModel.getRawNumPeople();
+    }
 }

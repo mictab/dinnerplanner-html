@@ -12,11 +12,11 @@ import {DinnerModel} from "../../models/dinner.model";
 })
 
 export class CheckoutComponent {
-    private totalPrice = 10;
 
     constructor(public dinnerModel: DinnerModel) {
         this.dinnerModel.getMenu().subscribe(() => this.getMenuItems());
         this.dinnerModel.getNumberOfPeople().subscribe(() => this.getNumPeople());
+        this.dinnerModel.getTotalMenuPrice().subscribe(() => this.getMenuPrice());
     }
 
     getMenuItems(): RecipeDetail[] {
@@ -34,4 +34,9 @@ export class CheckoutComponent {
     getNumPeople(): number {
         return this.dinnerModel.getRawNumPeople();
     }
+
+    getMenuPrice(): number {
+        return this.dinnerModel.getRawTotalMenuPrice();
+    }
+
 }
