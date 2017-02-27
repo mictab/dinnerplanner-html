@@ -3,7 +3,6 @@
  */
 
 import {Component} from '@angular/core';
-import {RecipeService} from "../../services/RecipeService";
 
 @Component({
     selector: 'home',
@@ -13,6 +12,5 @@ import {RecipeService} from "../../services/RecipeService";
 
 export class HomeComponent {
     private title = "A Home Dinner Service";
-    private searchVal = "";
     private description = "Lorem ipsum dolor sit omet Lorem ipsum dolor sit omet Lorem ipsum dolor sit omet Lorem ipsum dolor sitsi tomet Lorem";
 }

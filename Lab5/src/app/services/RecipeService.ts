@@ -6,7 +6,6 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from "rxjs";
 import {Recipe, RecipeDetail} from "../components/dish/shared/recipe.model";
-import {DinnerModel} from "../models/dinner.model";
 
 @Injectable()
 export class RecipeService {
@@ -28,14 +27,14 @@ export class RecipeService {
             .get(`${this.BASE_URL}${this.endpoints.search}&type=${type}&query=${query}`,
             {headers: this.headers})
             .map(this.extractRecipes)
-            .catch(this.handleError);
+            .catch(RecipeService.handleError);
     }
 
     getRecipeDetails(id: number): Observable<any> {
-        return this.http.get(`${this.BASE_URL}${id}/information`, {headers: this.headers}).map(this.extractRecipeDetail);
+        return this.http.get(`${this.BASE_URL}${id}/information`, {headers: this.headers}).map(RecipeService.extractRecipeDetail);
     }
 
-    private handleError(error: any) {
+    private static handleError(error: any) {
         return Observable.throw(error.message);
 
     }
@@ -44,7 +43,7 @@ export class RecipeService {
         return response.json().results.map(recipe => new Recipe(recipe));
     }
 
-    private extractRecipeDetail(response: any): any {
+    private static extractRecipeDetail(response: any): any {
         return new RecipeDetail(response.json());
     }
 }

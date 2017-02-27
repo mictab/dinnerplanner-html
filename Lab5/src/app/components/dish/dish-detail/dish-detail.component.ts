@@ -2,7 +2,7 @@
  * Created by michel on 2/21/17.
  */
 import {Component} from '@angular/core';
-import {Recipe, RecipeDetail} from "../shared/recipe.model";
+import {RecipeDetail} from "../shared/recipe.model";
 import {DinnerModel} from "../../../models/dinner.model";
 import {ActivatedRoute} from "@angular/router";
 import {Location} from '@angular/common';

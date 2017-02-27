@@ -5,7 +5,6 @@
 import {Injectable} from '@angular/core';
 import {Recipe, RecipeDetail} from "../components/dish/shared/recipe.model";
 import {Observable, Subject} from "rxjs";
-import {Http} from "@angular/http";
 import {RecipeService} from "../services/RecipeService";
 
 @Injectable()
