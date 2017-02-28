@@ -15,6 +15,7 @@ import {DishDetailComponent} from "./components/dish/dish-detail/dish-detail.com
 import {InstructionsComponent} from "./components/instructions/instructions.component";
 import {DinnerOverviewComponent} from "./components/dinner-overview/dinner-overview.component";
 import {LoadingComponent} from "./components/loading/loading.component";
+import {CookieService} from "angular2-cookie/services/cookies.service";
 
 @NgModule({
     declarations: [
@@ -34,7 +35,7 @@ import {LoadingComponent} from "./components/loading/loading.component";
         HttpModule,
         RouterModule.forRoot(rootRouterConfig, {useHash: true})
     ],
-    providers: [RecipeService, DinnerModel],
+    providers: [RecipeService, DinnerModel, CookieService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
