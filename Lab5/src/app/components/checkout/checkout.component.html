@@ -15,7 +15,7 @@
     <hr>
     <div class="total-price from-left">
         <p><span>SEK </span><span class="totalPrice">{{getMenuPrice()}}</span></p></div>
-    <button class="btn btn-large btn-primary" type="button" id="confirm-button" [routerLink]="['/overview']">Confirm
+    <button class="btn btn-large btn-primary" type="button" id="confirm-button" [routerLink]="['/overview']" [disabled]="getMenuItems().length == 0">Confirm
         Dinner
     </button>
     <button class="btn btn-large btn-primary" type="button" id="delete-starter" (click)="deleteDishFor('appetizer')">
