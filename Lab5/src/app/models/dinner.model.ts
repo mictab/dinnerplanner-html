@@ -47,6 +47,7 @@ export class DinnerModel {
     /* Gets the recipes for a specific type and query */
     public searchForDishes(type, query) {
         this.setLoading(true);
+        this.setApiSuccess(true);
         this.recipeService.getRecipes(type, query).subscribe(dishes => {
             this.setDishes(dishes);
             this.setLoading(false);
@@ -59,6 +60,7 @@ export class DinnerModel {
     /* Gets the detail for a recipe with a provided id */
     public getRecipe(id: number) {
         this.setLoading(true);
+        this.setApiSuccess(true);
         this.recipeService.getRecipeDetails(id).subscribe(dish => {
             this.setSelectedRecipe(dish);
             this.setLoading(false);
