@@ -11,9 +11,9 @@
         <div><img src={{dish.image}} width="140" height="140">
             <div><h4>{{dish.name}}</h4></div>
         </div>
-        <div class="price">{{dish.price * getNumPeople()}} SEK</div>
+        <div class="price">{{dish.price * getNumPeople() | number: '1.2-2'}} SEK</div>
     </div>
     <div class="menuResult"><p>Total:</p>
-        <div class="price">{{getMenuPrice() * getNumPeople()}} SEK</div>
+        <div class="price">{{getMenuPrice() * getNumPeople() | number: '1.2-2'}} SEK</div>
     </div>
 </div>

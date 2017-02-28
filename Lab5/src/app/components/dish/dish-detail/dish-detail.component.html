@@ -17,9 +17,9 @@
                     <table class="from-left list-of-dishes">
                         <tbody>
                         <tr *ngFor="let ingredient of recipe?.ingredients">
-                            <td>{{ingredient.quantity * getNumPeople()}} {{ingredient.unit}}</td>
+                            <td>{{ingredient.quantity * getNumPeople() | number: '1.2-2'}} {{ingredient.unit}}</td>
                             <td>{{ingredient.name}}</td>
-                            <td>SEK {{ingredient.price * getNumPeople()}}</td>
+                            <td>SEK {{ingredient.price * getNumPeople() | number: '1.2-2'}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -28,7 +28,7 @@
                         <button class="btn btn-ms btn-primary confirm-btn" (click)="addSelectedDishToMenu()">Confirm
                             Dish
                         </button>
-                        <p>SEK {{recipePrice * getNumPeople()}}</p></div>
+                        <p>SEK {{recipePrice * getNumPeople() | number: '1.2-2'}}</p></div>
                 </div>
             </div>
             <div class="dish-preparations"><h2>PREPARATION</h2>

@@ -34,6 +34,6 @@ export class DinnerOverviewComponent {
     }
 
     getMenuPrice(): number {
-        return Math.round(this.getMenuItems().reduce((curr, item) => curr + item.price, 0) * 100) / 100;
+        return this.getMenuItems().reduce((curr, item) => curr + item.price, 0);
     }
 }

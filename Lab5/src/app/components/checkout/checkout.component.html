@@ -14,7 +14,7 @@
     </ul>
     <hr>
     <div class="total-price from-left">
-        <p><span>SEK </span><span class="totalPrice">{{getMenuPrice()}}</span></p></div>
+        <p><span>SEK </span><span class="totalPrice">{{getMenuPrice() | number: '1.2-2'}}</span></p></div>
     <button class="btn btn-large btn-primary" type="button" id="confirm-button" [routerLink]="['/overview']" [disabled]="getMenuItems().length == 0">Confirm
         Dinner
     </button>
