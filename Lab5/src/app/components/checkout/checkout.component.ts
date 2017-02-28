@@ -39,4 +39,8 @@ export class CheckoutComponent {
         return this.model.getRawTotalMenuPrice();
     }
 
+    getPriceForDish(item: RecipeDetail, num: number) {
+        return Math.round(item.ingredients.reduce((curr, item) => curr + item.price, 0) * num * 100) / 100;
+    }
+
 }

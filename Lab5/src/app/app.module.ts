@@ -15,6 +15,7 @@ import {DishDetailComponent} from "./components/dish/dish-detail/dish-detail.com
 import {InstructionsComponent} from "./components/instructions/instructions.component";
 import {DinnerOverviewComponent} from "./components/dinner-overview/dinner-overview.component";
 import {LoadingComponent} from "./components/loading/loading.component";
+import {LocalStorageModule} from "angular-2-local-storage";
 
 @NgModule({
     declarations: [
@@ -29,6 +30,10 @@ import {LoadingComponent} from "./components/loading/loading.component";
         DinnerOverviewComponent
     ],
     imports: [
+        LocalStorageModule.withConfig({
+            prefix: 'dinner-planner',
+            storageType: 'localStorage'
+        }),
         BrowserModule,
         FormsModule,
         HttpModule,

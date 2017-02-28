@@ -9,7 +9,7 @@
     <ul class="from-left list-of-dishes">
         <li *ngFor="let item of getMenuItems()" class="table-row">
             <span>{{item.name}}</span>
-            <span>{{item.getPriceForDish(getNumPeople())}}</span>
+            <span>{{getPriceForDish(item, getNumPeople())}}</span>
         </li>
     </ul>
     <hr>
