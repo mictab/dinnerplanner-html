@@ -128,8 +128,10 @@ export class DinnerModel {
     }
 
     private getRecipeIdsAndAddToCookies() {
-        let ids = [];
-        this.menu.forEach(dish => ids.push(dish.id));
+        let ids = this.menu.reduce((newArr, dish) => {
+            newArr.push(dish.id);
+            return newArr;
+        }, []);
         this._cookieService.putObject("menu", ids);
     }
 
