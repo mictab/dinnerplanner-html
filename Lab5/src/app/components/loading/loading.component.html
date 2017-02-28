@@ -1,6 +1,5 @@
 <div class="loadingBar" *ngIf="isLoading">
-    <span *ngIf="success">Loading...</span>
-    <span *ngIf="!success">Failed!</span>
+    <span>{{success ? "Loading..." : "Failed!"}}</span>
     <div class="loading" *ngIf="success"></div>
 </div>
 
