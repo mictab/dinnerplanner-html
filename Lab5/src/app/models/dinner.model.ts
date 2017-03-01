@@ -94,7 +94,7 @@ export class DinnerModel {
         this.menu = this.menu.filter(d => d.type != this.filterType);
         this.menu.push(this.recipe);
         // Use local storage
-        this.storage.add("menu", this.menu);
+        this.storage.set("menu", this.menu);
         this.menuSubject.next(this.menu);
         this.calculateNewPrice();
     }
