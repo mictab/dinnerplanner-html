@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 import {Recipe, RecipeDetail} from "../components/dish/shared/recipe.model";
 import {Observable, Subject} from "rxjs";
 import {RecipeService} from "../services/RecipeService";
+import {LocalStorageService} from "angular-2-local-storage";
 
 @Injectable()
 export class DinnerModel {
@@ -33,7 +34,7 @@ export class DinnerModel {
     private isLoadingSubject: Subject<boolean>;
     private apiStatusSubject: Subject<boolean>;
 
-    constructor(public recipeService: RecipeService) {
+    constructor(public recipeService: RecipeService, private storage: LocalStorageService) {
         this.menu = [];
         this.menuSubject = new Subject<RecipeDetail[]>();
         this.dishesSubject = new Subject<Recipe[]>();
@@ -42,6 +43,16 @@ export class DinnerModel {
         this.totalMenuPriceSubject = new Subject<number>();
         this.isLoadingSubject = new Subject<boolean>();
         this.apiStatusSubject = new Subject<boolean>();
+
+        if (this.storage.get("menu")) {
+            this.menu = this.storage.get("menu") as RecipeDetail[];
+        }
+
+        if (this.storage.get("people")) {
+            this.numberOfPeople = this.storage.get("people") as number;
+        }
+
+        this.calculateNewPrice();
     }
 
     /* Gets the recipes for a specific type and query */
@@ -80,9 +91,10 @@ export class DinnerModel {
 
     /* Adds a recipe to a menu. Filters out already existing recipe of same type */
     public addSelectedDishToMenu() {
-        console.log(this.filterType);
         this.menu = this.menu.filter(d => d.type != this.filterType);
         this.menu.push(this.recipe);
+        // Use local storage
+        this.storage.set("menu", this.menu);
         this.menuSubject.next(this.menu);
         this.calculateNewPrice();
     }
@@ -98,6 +110,7 @@ export class DinnerModel {
 
     public deleteDishOfType(val: string) {
         this.menu = this.menu.filter(d => d.type != val);
+        this.storage.set("menu", this.menu);
         this.menuSubject.next(this.menu);
         this.calculateNewPrice();
     }
@@ -125,6 +138,7 @@ export class DinnerModel {
 
     public setNumberOfPeople(val: number) {
         this.numberOfPeople = val;
+        this.storage.set("people", this.numberOfPeople);
         this.numberOfPeopleSubject.next(this.numberOfPeople);
         this.calculateNewPrice();
     }
@@ -139,8 +153,8 @@ export class DinnerModel {
 
     private calculateNewPrice() {
         let sum = 0;
-        this.menu.forEach((item) => sum += item.getPriceForDish(this.numberOfPeople));
-        this.totalMenuPrice = sum;
+        this.menu.forEach(item => sum += item.ingredients.reduce((curr, item) => curr + item.price, 0));
+        this.totalMenuPrice = sum * this.numberOfPeople;
         this.totalMenuPriceSubject.next(this.totalMenuPrice);
     }
 
